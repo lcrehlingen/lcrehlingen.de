@@ -1,5 +1,14 @@
 import { createRequestHandler } from "@remix-run/express";
 import express from "express";
+import {createIPX, createIPXNodeServer, ipxFSStorage, ipxHttpStorage } from "ipx";
+
+const ipx = createIPX({
+  storage: ipxFSStorage({ dir: "./public"}),
+  httpStorage: ipxHttpStorage({ domains: [process.env.STRAPI_URL] }),
+  alias: {
+    strapi: process.env.STRAPI_URL ,
+  },
+});
 
 const viteDevServer =
   process.env.NODE_ENV === "production"
@@ -15,6 +24,13 @@ app.use(
   viteDevServer
     ? viteDevServer.middlewares
     : express.static("build/client")
+);
+app.use(
+  "/_ipx",
+  (req, res, next) => {
+    next();
+  },
+  createIPXNodeServer(ipx)
 );
 
 const build = viteDevServer

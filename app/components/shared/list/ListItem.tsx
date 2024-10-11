@@ -5,7 +5,7 @@ export default function ListItem({ children }: { children: React.ReactNode }) {
         flex-row
         items-center
         rounded-md
-        bg-th-background
+        bg-gray-200
         transition
         duration-500
         ease-in-out

@@ -37,6 +37,13 @@ export default function Events({ results, events }: EventsProps) {
                   </Link>
                 </ListItem>
               ))}
+              {events.length === 0 && (
+                <ListItem>
+                  <div className="font-medium flex-1 p-4">
+                    Keine bevorstehenden Veranstaltungen
+                  </div>
+                </ListItem>
+              )}
             </List>
           </div>
         </>
@@ -64,6 +71,13 @@ export default function Events({ results, events }: EventsProps) {
                   </Link>
                 </ListItem>
               ))}
+               {events.length === 0 && (
+                <ListItem>
+                  <div className="font-medium flex-1 p-4">
+                    Keine Ergebnisse gefunden
+                  </div>
+                </ListItem>
+              )}
             </List>
           </div>
         </>

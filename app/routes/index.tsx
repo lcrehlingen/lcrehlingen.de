@@ -9,6 +9,7 @@ import ArticleHighlightList from "~/components/shared/article/ArticleHighlightLi
 import { getArticles } from "~/.server/articles";
 import { json, useLoaderData } from "@remix-run/react";
 import { MetaFunction } from "@remix-run/node";
+import { getLatestEventsAndResults } from "~/.server/events";
 
 export const meta: MetaFunction = () => {
   return [
@@ -23,12 +24,20 @@ export const meta: MetaFunction = () => {
 };
 
 export const loader = async () => {
-  const articles = await getArticles({ start: 0, limit: 6 });
-  return json({ articles });
+  const [articles, latest] = await Promise.all([
+    getArticles({ start: 0, limit: 6 }),
+    getLatestEventsAndResults(),
+  ]);
+  const { events, results } = latest;
+  return json({
+    articles,
+    events,
+    results,
+  });
 };
 
 export default function Index() {
-  const { articles } = useLoaderData<typeof loader>();
+  const { articles, events, results } = useLoaderData<typeof loader>();
   return (
     <>
       <BackgroundHeader title="Herzlich Willkommen beim Leichtathletik Club Rehlingen" />
@@ -40,7 +49,7 @@ export default function Index() {
         <div className="mx-auto flex flex-col items-center justify-center gap-8 px-4 md:px-10 lg:max-w-6xl">
           <Sponsor />
           <PromoSection />
-          <Events events={[]} results={[]} />
+          <Events events={events} results={results} />
           <Reha />
           <Pfingstsportfest />
           <FSJ />

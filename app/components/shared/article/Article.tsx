@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
-import Balancer from "react-wrap-balancer";
 import ContentContainer from "~/components/ContentContainer";
 import Image from "../image/Image";
+import type { Article } from "~/.server/articles";
+import Gallery from "../image/gallery/Gallery";
 
 async function handleShare(title: string, url: string) {
   if (navigator.share) {
@@ -16,14 +17,7 @@ async function handleShare(title: string, url: string) {
   }
 }
 
-
-export default function Article({
-  article,
-  markdown,
-}: {
-  article: any;
-  markdown: string;
-}) {
+export default function Article({ article }: { article: Article }) {
   const [webShare, setWebShare] = useState(true);
   useEffect(() => {
     const tables = [...document.getElementsByTagName("table")];
@@ -61,9 +55,7 @@ export default function Article({
               />
             </div>
           )}
-          <h1 className="text-left text-3xl font-bold">
-            <Balancer>{article.title}</Balancer>
-          </h1>
+          <h1 className="text-left text-3xl font-bold">{article.title}</h1>
           <div className="flex justify-start space-x-2">
             <time className="font-semibold">
               {new Date(article.publishedAt).toLocaleDateString("de-DE", {
@@ -76,7 +68,7 @@ export default function Article({
           </div>
           <div
             className="prose prose-lg max-w-none text-left"
-            dangerouslySetInnerHTML={{ __html: markdown }}
+            dangerouslySetInnerHTML={{ __html: article.content }}
           />
           {webShare && (
             <button
@@ -106,33 +98,18 @@ export default function Article({
             </button>
           )}
 
-          {/*article.gallery && article.gallery.length > 0 && (
+          {article.gallery && article.gallery.length > 0 && (
             <Gallery
               photos={article.gallery.map((photo) => {
                 return {
                   src: "/strapi" + photo.url,
                   width: photo.width,
                   height: photo.height,
-                  alt: photo.caption,
+                  alt: photo.alternativeText || undefined,
                 };
               })}
             />
           )}
-          {article.files && article.files.length > 0 && (
-            <FileList>
-              {article.files
-                .filter((file) => file != null)
-                .map((file, index) => {
-                  return (
-                    <FileListeItem
-                      key={index}
-                      to={"/api/strapi" + file?.url}
-                      name={file?.name}
-                    />
-                  );
-                })}
-            </FileList>
-          )*/}
         </article>
       </ContentContainer>
     </>

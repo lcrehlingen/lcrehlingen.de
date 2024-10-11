@@ -1,12 +1,13 @@
 import { createRequestHandler } from "@remix-run/express";
 import express from "express";
 import {createIPX, createIPXNodeServer, ipxFSStorage, ipxHttpStorage } from "ipx";
+import 'dotenv/config'
 
 const ipx = createIPX({
   storage: ipxFSStorage({ dir: "./public"}),
   httpStorage: ipxHttpStorage({ domains: [process.env.STRAPI_URL] }),
   alias: {
-    strapi: process.env.STRAPI_URL ,
+    strapi: process.env.STRAPI_URL,
   },
 });
 

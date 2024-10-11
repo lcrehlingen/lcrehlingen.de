@@ -18,6 +18,9 @@ export default {
           '"Noto Color Emoji"',
         ],
       },
+      screens: {
+        landscape: { raw: "(orientation: landscape)" },
+      },
     },
   },
   plugins: [typography, aspectRatio,],

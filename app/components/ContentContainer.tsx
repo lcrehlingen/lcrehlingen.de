@@ -13,9 +13,7 @@ export default function ContentContainer({
   return (
     <>
       {withHeader && (
-        <BackgroundHeader
-          backgroundImage={"url(/_ipx/q_75,f_webp/background.jpg)"}
-        />
+        <BackgroundHeader />
       )}
       <section className="container mx-auto mb-12 px-0 pt-96 md:mb-36 md:px-10 md:pt-16">
         <div

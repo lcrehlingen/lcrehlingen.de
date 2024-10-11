@@ -1,18 +1,16 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import { useFetcher } from "@remix-run/react";
 import { useCallback, useEffect, useState } from "react";
 import ContentContainer from "../../ContentContainer";
 import Title from "../../Title";
 import ArticleCard from "./ArticleCard";
+import { Article } from "~/.server/articles";
 
 export default function InfinteLoading({
   initalArticles,
-  path = "/news/",
 }: {
-  initalArticles: any[];
-  path?: string;
+  initalArticles: Article[];
 }) {
-  const [articles, setArticles] = useState<any[]>(initalArticles);
+  const [articles, setArticles] = useState<Article[]>(initalArticles);
   const fetcher = useFetcher();
 
   const [scrollPosition, setScrollPosition] = useState(0);
@@ -55,7 +53,7 @@ export default function InfinteLoading({
     if (!shouldFetch || !height) return;
     if (clientHeight + scrollPosition + 100 < height) return;
     if(fetcher.state === "loading") return;
-    fetcher.load(`${path}?index&page=${page}`);
+    fetcher.load(`/news?index&page=${page}`);
     setShouldFetch(false);
   }, [clientHeight, scrollPosition, fetcher]);
 
@@ -82,7 +80,7 @@ export default function InfinteLoading({
         <ul className="grid w-full grid-cols-1 gap-4 lg:grid-cols-3">
           {articles.map((article: any, index: number) => (
             <li key={index}>
-              <ArticleCard article={article} path={path} />
+              <ArticleCard article={article} />
             </li>
           ))}
         </ul>

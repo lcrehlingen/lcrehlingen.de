@@ -1,18 +1,16 @@
 import { Link } from "@remix-run/react";
-import Balancer from "react-wrap-balancer";
 import ImageCard from "../card/ImageCard";
+import { Article } from "~/.server/articles";
 
 export default function ArticleCard({
   article,
-  path = "/news/",
 }: {
-  article: any;
+  article: Article;
   container?: boolean;
-  path?: string;
 }) {
   return (
     <article className="h-full">
-      <Link to={path + article.slug} rel="bookmark">
+      <Link to={`/news/${article.slug}`} rel="bookmark">
         <ImageCard
           image={{
             height: 1080,
@@ -23,7 +21,7 @@ export default function ArticleCard({
         >
           <div className="flex flex-1 flex-col justify-between gap-2 p-4">
             <h1 className="w-full text-xl font-semibold text-gray-900">
-              <Balancer>{article.title}</Balancer>
+              {article.title}
             </h1>
             <span className="text-base text-gray-500">
               <time dateTime={new Date(article.publishedAt).toISOString()}>

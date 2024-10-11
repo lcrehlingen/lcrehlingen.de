@@ -7,6 +7,10 @@ export default function Sponsor() {
       image: "/sponsoren/nta_atos.png",
     },
     {
+      "name": "",
+      "image": "",
+    },
+    {
       name: "Moore",
       image: "/sponsoren/moore.png",
     },
@@ -23,19 +27,18 @@ export default function Sponsor() {
       <div className="flex justify-center">
         <ul className="grid grid-cols-1 gap-4 md:grid-cols-4">
           {sponsors.map((sponsor, index) => (
-            <>
-              {index === 1 && (
+            <li key={index}>
+              {index === 1 ? (
                 <hr className="mx-auto my-4 h-1 w-48 rounded border-0 bg-gray-100 dark:bg-gray-700 md:my-10 md:invisible" />
-              )}
-              <li key={index}>
+              ) : (
                 <Image
                   alt={sponsor.name}
                   src={sponsor.image}
                   width={1920}
                   height={720}
                 />
-              </li>
-            </>
+              )}
+            </li>
           ))}
         </ul>
       </div>

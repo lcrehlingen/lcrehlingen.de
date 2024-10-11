@@ -1,10 +1,5 @@
+import { Image } from "@unpic/react";
 import TableContainer from "../../../TableContainer";
-import alexanderBock from "./images/AlexanderBock.jpg";
-import lennnartZehfeld from "./images/LennartZehfeld.jpg";
-import hannahRoedel from "./images/HannahRödel.jpg";
-import abieHensgen from "./images/AbieHensgen.jpg";
-import liaraSchulze from "./images/LiaraSchulze.jpg";
-import richardRinger from "./images/RichardRinger.jpg";
 
 export default function PromoSection() {
   return (
@@ -41,47 +36,53 @@ export default function PromoSection() {
       }
       right={
         <div className="hidden gap-4 md:grid md:grid-cols-3">
-          <img
-            src={richardRinger}
+          <Image
+            cdn="ipx"
+            src={"athleten/RichardRinger.jpg"}
             width={309}
             height={550}
             alt="Richard Ringer"
-            style={{ borderRadius: "0.5rem" }}
+            className="rounded-lg"
           />
-          <img
-            src={lennnartZehfeld}
+          <Image
+            cdn="ipx"
+            src={"athleten/LennartZehfeld.jpg"}
             width={326}
             height={580}
             alt="Lennart Zehfeld"
-            style={{ borderRadius: "0.5rem" }}
+            className="rounded-lg"
           />
-          <img
-            src={hannahRoedel}
+          <Image
+            cdn="ipx"
+            src={"athleten/HannahRödel.jpg"}
             width={422}
             height={750}
             alt="Hannah Rödel"
-            style={{ borderRadius: "0.5rem" }}
+            className="rounded-lg"
           />
-          <img
-            src={alexanderBock}
+          <Image
+            cdn="ipx"
+            src={"athleten/AlexanderBock.jpg"}
             width={1020}
             height={1815}
             alt="Alexander Bock"
-            style={{ borderRadius: "0.5rem" }}
+            className="rounded-lg"
           />
-          <img
-            src={abieHensgen}
+          <Image
+            cdn="ipx"
+            src={"athleten/AbieHensgen.jpg"}
             width={1993}
             height={3543}
             alt="Abie Hensgen"
-            style={{ borderRadius: "0.5rem" }}
+            className="rounded-lg"
           />
-          <img
-            src={liaraSchulze}
+          <Image
+            cdn="ipx"
+            src={"athleten/LiaraSchulze.jpg"}
             width={1268}
             height={2256}
             alt="Liara Schulze"
-            style={{ borderRadius: "0.5rem" }}
+            className="rounded-lg"
           />
         </div>
       }

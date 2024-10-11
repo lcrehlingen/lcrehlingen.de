@@ -1,4 +1,4 @@
-import Image from "~/components/shared/image/Image";
+import { Image } from "@unpic/react";
 
 export default function Sponsor() {
   const sponsors = [
@@ -36,6 +36,7 @@ export default function Sponsor() {
                   src={sponsor.image}
                   width={1920}
                   height={720}
+                  cdn="ipx"
                 />
               )}
             </li>

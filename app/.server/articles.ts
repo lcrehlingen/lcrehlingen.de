@@ -1,12 +1,6 @@
 import { z } from "zod";
 import { marked } from "marked";
-
-const ImageSchema = z.object({
-  url: z.string(),
-  alternativeText: z.string().nullable(),
-  width: z.number(),
-  height: z.number(),
-});
+import { ImageSchema } from "./image";
 
 const ArticleSchema = z.object({
   id: z.number(),

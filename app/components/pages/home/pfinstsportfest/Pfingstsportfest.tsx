@@ -1,12 +1,12 @@
+import { Image } from "@unpic/react";
 import TableContainer from "~/components/TableContainer";
-import wactSilver from "~/assets/images/wact_silver.jpg";
 
 export default function Pfingstsportfest() {
   const eventDate = new Date("June 08, 2025");
-  
+
   function daysAway(date: Date) {
     const millisecondsPerDay = 24 * 60 * 60 * 1000;
-    const currentDate = new Date(); 
+    const currentDate = new Date();
     currentDate.setHours(0, 0, 0, 0);
     date.setHours(0, 0, 0, 0);
     const differenceInMilliseconds = date.getTime() - currentDate.getTime();
@@ -15,8 +15,9 @@ export default function Pfingstsportfest() {
   return (
     <TableContainer
       left={
-        <img
-          src={wactSilver}
+        <Image
+          cdn="ipx"
+          src={"wact_silver.jpg"}
           width={1920}
           height={1080}
           alt="World Athletics Continental Tour Silver"
@@ -38,7 +39,7 @@ export default function Pfingstsportfest() {
               im Bungertstation statt.
               {daysAway(eventDate) > 0 &&
                 " Noch " +
-                daysAway(eventDate) +
+                  daysAway(eventDate) +
                   (daysAway(eventDate) == 1 ? " Tag." : " Tage.")}
             </>
           </p>

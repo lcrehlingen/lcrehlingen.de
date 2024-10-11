@@ -15,8 +15,8 @@ export default function ArticleCard({
           image={{
             height: 1080,
             width: 1920,
-            src: "/strapi" + article.thumbnail?.url,
-            alt: article.thumbnail?.alternativeText || undefined,
+            src: article.thumbnail.url,
+            alt: article.thumbnail.alternativeText || undefined,
           }}
         >
           <div className="flex flex-1 flex-col justify-between gap-2 p-4">

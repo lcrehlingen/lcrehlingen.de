@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import ContentContainer from "~/components/ContentContainer";
-import Image from "../image/Image";
 import type { Article } from "~/.server/articles";
 import Gallery from "../image/gallery/Gallery";
+import { Image } from "@unpic/react";
 
 async function handleShare(title: string, url: string) {
   if (navigator.share) {
@@ -44,15 +44,16 @@ export default function Article({ article }: { article: Article }) {
         <article className="flex flex-col gap-2 text-center">
           {article.thumbnail && (
             <div className="mb-8 flex w-full justify-center">
-              <Image
-                style={{ borderRadius: "0.5rem" }}
-                height={article.thumbnail.height}
-                width={article.thumbnail.width}
-                alt={article.thumbnail.alternativeText || undefined}
-                src={"/strapi" + article.thumbnail.url}
-                lazy={false}
-                className="rounded-image border-none align-middle md:w-6/12"
-              />
+              <div className="md:w-6/12">
+                <Image
+                  height={article.thumbnail.height}
+                  width={article.thumbnail.width}
+                  alt={article.thumbnail.alternativeText || undefined}
+                  src={article.thumbnail.url}
+                  className="rounded-lg"
+                  cdn="ipx"
+                />
+              </div>
             </div>
           )}
           <h1 className="text-left text-3xl font-bold">{article.title}</h1>
@@ -102,7 +103,7 @@ export default function Article({ article }: { article: Article }) {
             <Gallery
               photos={article.gallery.map((photo) => {
                 return {
-                  src: "/strapi" + photo.url,
+                  src: photo.url,
                   width: photo.width,
                   height: photo.height,
                   alt: photo.alternativeText || undefined,

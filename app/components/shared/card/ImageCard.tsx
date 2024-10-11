@@ -1,4 +1,4 @@
-import Image from "~/components/shared/image/Image";
+import { Image } from "@unpic/react";
 import Card from "./Card";
 
 export type ImageCardProps = {
@@ -21,6 +21,7 @@ export default function ImageCard({ image, children, orientation="landscape"}: I
           width={image.width}
           src={image.src}
           alt={image.alt}
+          cdn="ipx"
         />
       </div>
       {children}

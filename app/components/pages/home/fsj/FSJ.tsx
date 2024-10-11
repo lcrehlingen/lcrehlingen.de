@@ -1,5 +1,5 @@
 import TableContainer from "~/components/TableContainer";
-import fsj from "./images/fsj.jpg";
+import { Image } from "@unpic/react";
 
 export default function FSJ() {
   return (
@@ -35,8 +35,9 @@ export default function FSJ() {
         </div>
       }
       right={
-        <img
-          src={fsj}
+        <Image
+          cdn="ipx"
+          src={"fsj.jpg"}
           width={1920}
           height={1080}
           alt="FSJ im Sport Logo"

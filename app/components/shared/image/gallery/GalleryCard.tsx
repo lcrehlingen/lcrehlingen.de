@@ -1,5 +1,6 @@
 import { Link } from "@remix-run/react";
-import Image from "../Image";
+import { Image } from "@unpic/react";
+import type { Image as ImageType } from "~/.server/image";
 
 export default function GalleryCard({
   name,
@@ -8,8 +9,7 @@ export default function GalleryCard({
 }: {
   name: string;
   to: string;
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  image: any;
+  image: ImageType;
 }) {
   const { url } = image;
   const height = image.height ? image.height : 1080;
@@ -18,10 +18,11 @@ export default function GalleryCard({
     <Link to={to} className="relative h-64 w-full rounded-lg">
       <div>
         <Image
-          src={"/strapi" + url}
+          cdn="ipx"
+          src={url}
           width={width}
           height={height}
-          imgClassName="
+          className="
           h-full
           w-full
         absolute

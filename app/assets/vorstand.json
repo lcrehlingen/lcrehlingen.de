@@ -1,0 +1,122 @@
+[
+    {
+        "name": "Thomas Klein",
+        "position": "1. Vorsitzender",
+        "image": "/vorstand/thomas-klein.jpg"
+    },
+    {
+        "name": "Karl Josef Hilt",
+        "position": "Stellv. Vorsitzender",
+        "image": "/vorstand/karl-josef-hilt.jpg"
+    },
+    {
+        "name": "Birgit Klein - Weiten",
+        "position": "Stellv. Vorsitzende",
+        "image": "/vorstand/birgit-klein-weiten.jpg"
+    },
+    {
+        "name": "Hans-Peter Schramm",
+        "position": "Finanzen",
+        "image": "/vorstand/hans-peter-schramm.jpg"
+    },
+    {
+        "name": "Niklas Marion",
+        "position": "Sportwart",
+        "image": "/vorstand/niklas-marion.png"
+    },
+    {
+        "name": "Philipp Stief",
+        "position": "Schriftführer",
+        "image": "/vorstand/placeholder.png"
+    },
+    {
+        "name": "Lutwin Jungmann",
+        "position": "Presse",
+        "image": "/vorstand/lutwin-jungmann.jpg"
+    },
+    {
+        "name": "Timo Spath",
+        "position": "Presse",
+        "image": "/vorstand/placeholder.png"
+    },
+    {
+        "name": "Elena Dittlinger",
+        "position": "Jugendwartin",
+        "image": "/vorstand/elena-dittlinger.jpg"
+    },
+    {
+        "name": "Kerstin Dandl",
+        "position": "Schülerwartin",
+        "image": "/vorstand/kerstin-dandl.jpg"
+    },
+    {
+        "name": "Shanta Ghosh-Broderius",
+        "position": "Stellv. Schülerwartin",
+        "image": "/vorstand/placeholder.png"
+    },
+    {
+        "name": "Peter Ney",
+        "position": "Breitensportwart",
+        "image": "/vorstand/peter-ney.jpg"
+    },
+    {
+        "name": "Ann-Cathrine Klein",
+        "position": "Beisitzerin",
+        "image": "/vorstand/ann-cathrine-klein.jpg"
+    },
+    {
+        "name": "Pascal Hoffmann",
+        "position": "Beisitzer",
+        "image": "/vorstand/placeholder.png"
+    },
+    {
+        "name": "Thorsten Ruf",
+        "position": "Beisitzer",
+        "image": "/vorstand/thorsten-ruf.jpg"
+    },
+    {
+        "name": "Dennis Zimmer",
+        "position": "Beisitzer",
+        "image": "/vorstand/dennis-zimmer.png"
+    },
+    {
+        "name": "Norbert Baldauf",
+        "position": "Beisitzer",
+        "image": "/vorstand/norbert-baldauf.jpg"
+    },
+    {
+        "name": "Raimund Schäfer",
+        "position": "Beisitzer",
+        "image": "/vorstand/raimund-schaefer.jpg"
+    },
+    {
+        "name": "Lothar Magar",
+        "position": "Beisitzer",
+        "image": "/vorstand/lothar-magar.jpg"
+    },
+    {
+        "name": "Peter Fischer",
+        "position": "Beisitzer",
+        "image": "/vorstand/peter-fischer.jpg"
+    },
+    {
+        "name": "Gisela Görgen",
+        "position": "Beisitzerin",
+        "image": "/vorstand/gisela-goergen.jpg"
+    },
+    {
+        "name": "Birgit Pirot",
+        "position": "Beisitzerin",
+        "image": "/vorstand/birgit-pirot.jpg"
+    },
+    {
+        "name": "Heidi Kerber",
+        "position": "Beisitzerin",
+        "image": "/vorstand/heidi-kerber.jpg"
+    },
+    {
+        "name": "Beate Klein",
+        "position": "Mitgliederverwaltung",
+        "image": "/vorstand/beate-klein.jpg"
+    }
+]

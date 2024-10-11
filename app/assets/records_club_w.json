@@ -1,0 +1,258 @@
+[
+  {
+    "Disziplin": "100 m",
+    "Zeit": "11,15 s",
+    "Name": "Laura Müller",
+    "Geburtsjahr": "1995",
+    "Datum": "09.06.2019",
+    "Ort": "Rehlingen"
+  },
+  {
+    "Disziplin": "200 m",
+    "Zeit": "22,65 s",
+    "Name": "Laura Müller",
+    "Geburtsjahr": "1995",
+    "Datum": "09.07.2017",
+    "Ort": "Erfurt"
+  },
+  {
+    "Disziplin": "400 m",
+    "Zeit": "51,25 s",
+    "Name": "Shanta Ghosh",
+    "Geburtsjahr": "1975",
+    "Datum": "30.06.2001",
+    "Ort": "Stuttgart"
+  },
+  {
+    "Disziplin": "800 m",
+    "Zeit": "2:03,01 min",
+    "Name": "Annett Horna",
+    "Geburtsjahr": "1987",
+    "Datum": "08.06.2012",
+    "Ort": "Regensburg"
+  },
+  {
+    "Disziplin": "1.000 m",
+    "Zeit": "2:41,28 min",
+    "Name": "Annett Horna",
+    "Geburtsjahr": "1987",
+    "Datum": "18.05.2014",
+    "Ort": "Pliezhausen"
+  },
+  {
+    "Disziplin": "1.500 m",
+    "Zeit": "4:07,30 min",
+    "Name": "Sara Benfares",
+    "Geburtsjahr": "2001",
+    "Datum": "09.07.2021",
+    "Ort": "Monaco (MON)"
+  },
+  {
+    "Disziplin": "3.000 m",
+    "Zeit": "9:03,09 min",
+    "Name": "Sara Benfares",
+    "Geburtsjahr": "2001",
+    "Datum": "08.05.2021",
+    "Ort": "Rehlingen"
+  },
+  {
+    "Disziplin": "5.000 m",
+    "Zeit": "15:40,97 min",
+    "Name": "Sara Benfares",
+    "Geburtsjahr": "2001",
+    "Datum": "19.06.2021",
+    "Ort": "Regensburg"
+  },
+  {
+    "Disziplin": "10.000 m",
+    "Zeit": "35:04,65 min",
+    "Name": "Annett Horna",
+    "Geburtsjahr": "1987",
+    "Datum": "02.05.2015",
+    "Ort": "Ohrdruf"
+  },
+  {
+    "Disziplin": "5 km",
+    "Zeit": "16:26 min",
+    "Name": "Sara Benfares",
+    "Geburtsjahr": "2001",
+    "Datum": "12.12.2020",
+    "Ort": "Albi/FRA"
+  },
+  {
+    "Disziplin": "10 km",
+    "Zeit": "33:26 min",
+    "Name": "Sara Benfares",
+    "Geburtsjahr": "2001",
+    "Datum": "12.12.2020",
+    "Ort": "Albi/FRA"
+  },
+  {
+    "Disziplin": "Mannschaft",
+    "Zeit": "1:58:36 h",
+    "Name": "Hannah Rödel (2004) –Katrin Marx (2002) –Maya Beyer (2004)",
+    "Geburtsjahr": "",
+    "Datum": "04.10.2020",
+    "Ort": "Saarbrücken"
+  },
+  {
+    "Disziplin": "Halbmarathon",
+    "Zeit": "1:15:46 h",
+    "Name": "Annett Horna",
+    "Geburtsjahr": "1987",
+    "Datum": "12.04.2015",
+    "Ort": "Husum"
+  },
+  {
+    "Disziplin": "Mannschaft",
+    "Zeit": "4:36:35 h",
+    "Name": "Gabi Célette (1956) –Anja Strohe (1973) –Silvia Huber (1964)",
+    "Geburtsjahr": "",
+    "Datum": "14.03.2010",
+    "Ort": "Saarbrücken"
+  },
+  {
+    "Disziplin": "Marathon",
+    "Zeit": "3:01:25 h",
+    "Name": "Gabi Husung",
+    "Geburtsjahr": "1952",
+    "Datum": "10.03.1985",
+    "Ort": "Kandel"
+  },
+  {
+    "Disziplin": "Mannschaft",
+    "Zeit": "10:32:07 h",
+    "Name": "Gabi Husung (1952) –Zarth – Krimhild Thielmann",
+    "Geburtsjahr": "",
+    "Datum": "13.05.1984",
+    "Ort": "Frankfurt"
+  },
+  {
+    "Disziplin": "100 m Hürden",
+    "Zeit": "13,55 s",
+    "Name": "Lisa Maihöfer",
+    "Geburtsjahr": "1998",
+    "Datum": "05.06.2021",
+    "Ort": "Braunschweig"
+  },
+  {
+    "Disziplin": "400 m Hürden",
+    "Zeit": "60,11 s",
+    "Name": "Margret Klein-Raber",
+    "Geburtsjahr": "1964",
+    "Datum": "20.06.1992",
+    "Ort": "München"
+  },
+  {
+    "Disziplin": "3.000 m Hind.",
+    "Zeit": "10:27,52 min",
+    "Name": "Katrin Marx",
+    "Geburtsjahr": "2001",
+    "Datum": "19.05.2019",
+    "Ort": "Karlsruhe"
+  },
+  {
+    "Disziplin": "Hochsprung",
+    "Zeit": "1,75 m",
+    "Name": "Margret Klein-Raber",
+    "Geburtsjahr": "1964",
+    "Datum": "04.07.1982",
+    "Ort": "Saarbrücken"
+  },
+  {
+    "Disziplin": "Stabhochsprung",
+    "Zeit": "3,90 m",
+    "Name": "Judith Jasper",
+    "Geburtsjahr": "1988",
+    "Datum": "29.05.2005",
+    "Ort": "Weissach"
+  },
+  {
+    "Disziplin": "Weitsprung",
+    "Zeit": "6,90 m",
+    "Name": "Bianca Kappler",
+    "Geburtsjahr": "1977",
+    "Datum": "07.07.2007",
+    "Ort": "Bad Langensalza"
+  },
+  {
+    "Disziplin": "Dreisprung",
+    "Zeit": "12,51 m",
+    "Name": "Irina Altendorfer",
+    "Geburtsjahr": "1985",
+    "Datum": "10.07.2011",
+    "Ort": "Gladbeck"
+  },
+  {
+    "Disziplin": "Kugelstoß",
+    "Zeit": "16,03 m",
+    "Name": "Anke Moos (Rehlinger)",
+    "Geburtsjahr": "1976",
+    "Datum": "17.08.1996",
+    "Ort": "Rehlingen"
+  },
+  {
+    "Disziplin": "Diskuswurf",
+    "Zeit": "49,00 m",
+    "Name": "Anke Moos (Rehlinger)",
+    "Geburtsjahr": "1976",
+    "Datum": "25.05.1997",
+    "Ort": "Rehlingen"
+  },
+  {
+    "Disziplin": "Hammerwurf",
+    "Zeit": "65,77 m",
+    "Name": "Sophie Gimmler",
+    "Geburtsjahr": "1996",
+    "Datum": "12.06.2021",
+    "Ort": "Fr.-Crumbach"
+  },
+  {
+    "Disziplin": "Speerwurf",
+    "Zeit": "53,55 m",
+    "Name": "Désirée Schwarz",
+    "Geburtsjahr": "1992",
+    "Datum": "05.06.2016",
+    "Ort": "Zweibrücken"
+  },
+  {
+    "Disziplin": "Siebenkampf",
+    "Zeit": "5.566 P.",
+    "Name": "Lisa Maihöfer",
+    "Geburtsjahr": "1998",
+    "Datum": "17.06.2018",
+    "Ort": "Ratingen"
+  },
+  {
+    "Disziplin": "Mannschaft",
+    "Zeit": "13.914 P.",
+    "Name": "Margret Klein-Raber (1964) –Jacqueline Schaefer (Klein;1967) –Esther Nicola (1969)",
+    "Geburtsjahr": "",
+    "Datum": "07./08.09.1991",
+    "Ort": "St. Wendel"
+  },
+  {
+    "Disziplin": "4x100 m",
+    "Zeit": "45,56 s",
+    "Name": "Nadine Hartmann (1980) –Sandra Abel (1977) –Shanta Ghosh (1975) –Saskia Nicola (1978)",
+    "Geburtsjahr": "",
+    "Datum": "12.06.2000",
+    "Ort": "Rehlingen"
+  },
+  {
+    "Disziplin": "4x400 m",
+    "Zeit": "3:44,40 min",
+    "Name": "Dörte Schlacht (1964) -Jacqueline Schaefer(Klein; 1967) –Margret Klein-Raber (1964) –Dagmar Neubauer (1962)",
+    "Geburtsjahr": "",
+    "Datum": "28.07.1991",
+    "Ort": "Hannover"
+  },
+  {
+    "Disziplin": "3x800 m",
+    "Zeit": "6:33,82 min",
+    "Name": "Joana Staub, Aline Zaar,Annett Horna",
+    "Geburtsjahr": "",
+    "Datum": "02.08.2015",
+    "Ort": "Jena"
+  }
+]

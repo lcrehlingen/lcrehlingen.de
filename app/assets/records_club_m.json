@@ -1,0 +1,290 @@
+[
+  {
+    "Disziplin": "100 m",
+    "Zeit": "10,34 s",
+    "Name": "Michael Bryan",
+    "Geburtsjahr": "1992",
+    "Datum": "20.04.2019",
+    "Ort": "Waco/USA"
+  },
+  {
+    "Disziplin": "200 m",
+    "Zeit": "20,58 s",
+    "Name": "Michael Bryan",
+    "Geburtsjahr": "1992",
+    "Datum": "24.06.2018",
+    "Ort": "Mannheim"
+  },
+  {
+    "Disziplin": "400 m",
+    "Zeit": "46,64 s",
+    "Name": "Werner Klein",
+    "Geburtsjahr": "1961",
+    "Datum": "12.08.1989",
+    "Ort": "Hamburg"
+  },
+  {
+    "Disziplin": "800 m",
+    "Zeit": "1:46,69 min",
+    "Name": "Patrick Zwicker",
+    "Geburtsjahr": "1994",
+    "Datum": "17.07.2014",
+    "Ort": "Mannheim"
+  },
+  {
+    "Disziplin": "1.000 m",
+    "Zeit": "2:20,11 min",
+    "Name": "Patrick Zwicker",
+    "Geburtsjahr": "1994",
+    "Datum": "18.05.2014",
+    "Ort": "Pliezhausen"
+  },
+  {
+    "Disziplin": "1.500 m",
+    "Zeit": "3:40,02 min",
+    "Name": "Christian Klein",
+    "Geburtsjahr": "1983",
+    "Datum": "01.08.2008",
+    "Ort": "Wattenscheid"
+  },
+  {
+    "Disziplin": "3.000 m",
+    "Zeit": "7:59,71 min",
+    "Name": "Raphael Schäfer",
+    "Geburtsjahr": "1981",
+    "Datum": "16.05.2005",
+    "Ort": "Rehlingen"
+  },
+  {
+    "Disziplin": "5.000 m",
+    "Zeit": "13:14,43 min",
+    "Name": "Richard Ringer",
+    "Geburtsjahr": "1989",
+    "Datum": "20.07.2019",
+    "Ort": "Heusden/BEL"
+  },
+  {
+    "Disziplin": "10.000 m",
+    "Zeit": "27:55,39 min",
+    "Name": "Richard Ringer",
+    "Geburtsjahr": "1989",
+    "Datum": "12.06.2021",
+    "Ort": "Leiden/NED"
+  },
+  {
+    "Disziplin": "5 km",
+    "Zeit": "17:58 min",
+    "Name": "Lennart Zehfeld",
+    "Geburtsjahr": "2005",
+    "Datum": "18.10.2020",
+    "Ort": "Föhren"
+  },
+  {
+    "Disziplin": "10 km",
+    "Zeit": "29:12 min",
+    "Name": "Tobias Blum",
+    "Geburtsjahr": "1995",
+    "Datum": "07.03.2021",
+    "Ort": "Otterndorf"
+  },
+  {
+    "Disziplin": "Mannschaft",
+    "Zeit": "1:31:27 h",
+    "Name": "Tobias Blum, Steffen Justus, Alexander Bock",
+    "Geburtsjahr": "",
+    "Datum": "15.09.2019",
+    "Ort": "Siegburg"
+  },
+  {
+    "Disziplin": "Halbmarathon",
+    "Zeit": "1:01:33 h",
+    "Name": "Richard Ringer",
+    "Geburtsjahr": "1989",
+    "Datum": "07.04.2019",
+    "Ort": "Berlin"
+  },
+  {
+    "Disziplin": "Mannschaft",
+    "Zeit": "3:38:55 h",
+    "Name": "Tobias Blum (1995) – Alexander Bock (1992) –Dennis Zimmer (1990)",
+    "Geburtsjahr": "",
+    "Datum": "17.03.2019",
+    "Ort": "Saarbrücken"
+  },
+  {
+    "Disziplin": "Marathon",
+    "Zeit": "2:08:49 h",
+    "Name": "Richard Ringer",
+    "Geburtsjahr": "1989",
+    "Datum": "11.04.2021",
+    "Ort": "Siena (ITA)"
+  },
+  {
+    "Disziplin": "Mannschaft",
+    "Zeit": "7:56:12 min",
+    "Name": "Dennis Zimmer (1990) –Philipp Stief (1991) –Thomas Detzen (1979)",
+    "Geburtsjahr": "",
+    "Datum": "30.10.2016",
+    "Ort": "Frankfurt"
+  },
+  {
+    "Disziplin": "110 m Hürden",
+    "Zeit": "13,77 s",
+    "Name": "Ralf Ruth",
+    "Geburtsjahr": "1969",
+    "Datum": "26.05.1996",
+    "Ort": "Scheeßel"
+  },
+  {
+    "Disziplin": "400 m Hürden",
+    "Zeit": "50,82 s",
+    "Name": "David Busch",
+    "Geburtsjahr": "1984",
+    "Datum": "01.08.2004",
+    "Ort": "Heilbronn"
+  },
+  {
+    "Disziplin": "3.000 m Hind.",
+    "Zeit": "8:26,65 min",
+    "Name": "Raphael Schäfer",
+    "Geburtsjahr": "1981",
+    "Datum": "09.06.2003",
+    "Ort": "Rehlingen"
+  },
+  {
+    "Disziplin": "20 km Gehen",
+    "Zeit": "1:48:03 h",
+    "Name": "Manfred Elsner",
+    "Geburtsjahr": "1942",
+    "Datum": "07.07.1973",
+    "Ort": "Ulm"
+  },
+  {
+    "Disziplin": "Hochsprung",
+    "Zeit": "2,12 m",
+    "Name": "Patrick Stutz",
+    "Geburtsjahr": "1970",
+    "Datum": "06.08.1988",
+    "Ort": "Nancy/FRA"
+  },
+  {
+    "Disziplin": "Stabhochsprung",
+    "Zeit": "5,25 m",
+    "Name": "Pascal Koehl",
+    "Geburtsjahr": "1991",
+    "Datum": "09.06.2014",
+    "Ort": "Rehlingen"
+  },
+  {
+    "Disziplin": "Weitsprung",
+    "Zeit": "8,49 m",
+    "Name": "Christian Reif",
+    "Geburtsjahr": "1984",
+    "Datum": "31.05.2014",
+    "Ort": "Weinheim"
+  },
+  {
+    "Disziplin": "Dreisprung",
+    "Zeit": "16,37 m",
+    "Name": "Martin Jasper",
+    "Geburtsjahr": "1989",
+    "Datum": "26.07.2014",
+    "Ort": "Ulm"
+  },
+  {
+    "Disziplin": "Kugelstoß",
+    "Zeit": "20,20 m",
+    "Name": "Valentin Moll",
+    "Geburtsjahr": "1999",
+    "Datum": "24.08.2021",
+    "Ort": "Rehlingen"
+  },
+  {
+    "Disziplin": "Diskuswurf",
+    "Zeit": "55,10 m",
+    "Name": "Frank Krämer",
+    "Geburtsjahr": "1970",
+    "Datum": "27.06.1995",
+    "Ort": "Rehlingen"
+  },
+  {
+    "Disziplin": "Hammerwurf",
+    "Zeit": "71,67 m",
+    "Name": "Andreas Sahner",
+    "Geburtsjahr": "1985",
+    "Datum": "03.07.2010",
+    "Ort": "Bürstadt"
+  },
+  {
+    "Disziplin": "Speerwurf alt bis 1985",
+    "Zeit": "79,60 m",
+    "Name": "Karl John",
+    "Geburtsjahr": "1939",
+    "Datum": "28.04.1968",
+    "Ort": "Zweibrücken"
+  },
+  {
+    "Disziplin": "Speerwurf neu ab 1986",
+    "Zeit": "72,76 m",
+    "Name": "Klaus Ambrosch",
+    "Geburtsjahr": "1973",
+    "Datum": "25.06.2006",
+    "Ort": "Freistett"
+  },
+  {
+    "Disziplin": "Zehnkampf",
+    "Zeit": "7.452 P.",
+    "Name": "Alexander Jung",
+    "Geburtsjahr": "1999",
+    "Datum": "11.08.2019",
+    "Ort": "Bietigheim- Bissingen"
+  },
+  {
+    "Disziplin": "Mannschaft",
+    "Zeit": "21.129 P.",
+    "Name": "Claus Heemsoth (1957) –Wolfgnag Muders (1957) –Michael Volz (1953)",
+    "Geburtsjahr": "",
+    "Datum": "17./18.07.1976",
+    "Ort": "Saarbrücken"
+  },
+  {
+    "Disziplin": "4x100 m",
+    "Zeit": "39,61 s",
+    "Name": "Ralf Ruth, Roger Gräber, Andreas Ruth, Uwe Eisenbeis",
+    "Geburtsjahr": "",
+    "Datum": "22.06.1996",
+    "Ort": "Köln"
+  },
+  {
+    "Disziplin": "4x400 m",
+    "Zeit": "3:13,32 min",
+    "Name": "Rainer Bies, Martin Groß,Thomas Klein, Werner Klein",
+    "Geburtsjahr": "",
+    "Datum": "10.06.1986",
+    "Ort": "Rehlingen"
+  },
+  {
+    "Disziplin": "4x800 m",
+    "Zeit": "7:19,70 min",
+    "Name": "Hubert Leineweber (1969) –Thomas Klein (1965) –Harald Leineweber (1969) –Werner Klein (1961)",
+    "Geburtsjahr": "",
+    "Datum": "22.07.1990",
+    "Ort": "Heilbronn"
+  },
+  {
+    "Disziplin": "3x1.000 m",
+    "Zeit": "7:19,96 min",
+    "Name": "Mike Seewald (1986) –Stephan Burgemeister (1983) – Thomas Koch (1983)",
+    "Geburtsjahr": "",
+    "Datum": "28.05.2005",
+    "Ort": "Koblenz"
+  },
+  {
+    "Disziplin": "4x1.500 m",
+    "Zeit": "15:47,4 min",
+    "Name": "Thomas Klein (1965) -Michael Simon (1962) – Hubert Leineweber (1969) –Andreas Rettig (1964)",
+    "Geburtsjahr": "",
+    "Datum": "24.04.1991",
+    "Ort": "Saarbrücken"
+  }
+]

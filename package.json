@@ -19,10 +19,15 @@
     "ipx": "^3.0.1",
     "isbot": "^4.1.0",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-photo-album": "^3.0.2",
+    "react-wrap-balancer": "^1.1.1",
+    "remark-gfm": "^4.0.0"
   },
   "devDependencies": {
+    "@mdx-js/rollup": "^3.0.1",
     "@remix-run/dev": "^2.12.1",
+    "@remix-run/v1-route-convention": "^0.1.4",
     "@tailwindcss/aspect-ratio": "^0.4.2",
     "@tailwindcss/typography": "^0.5.15",
     "@types/express": "^5.0.0",

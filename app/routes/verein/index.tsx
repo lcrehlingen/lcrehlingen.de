@@ -88,7 +88,7 @@ export default function VereinPage() {
         </p>
         <p>
           Der LC Rehlingen ist durch sein Internationales Pfingstsportfest,
-          nächstes Jahr zum 57. Mal weltweit bekannt und geachtet.
+          nächstes Jahr zum 60. Mal weltweit bekannt und geachtet.
         </p>
         <p>
           Alle diese Vorzüge tragen dazu bei, dass sich die Menschen im LC

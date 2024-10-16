@@ -1,8 +1,14 @@
 import type { MetaFunction } from "@remix-run/node";
 import { json } from "@remix-run/node";
 import { useLoaderData } from "@remix-run/react";
+import { getTrainings, Training } from "~/.server/training";
 import ContentContainer from "~/components/ContentContainer";
 import Title from "~/components/Title";
+
+interface TrainingDay {
+  day: string;
+  trainings: Training[];
+}
 
 export const meta: MetaFunction = () => {
   return [
@@ -17,8 +23,8 @@ export const meta: MetaFunction = () => {
 };
 
 export async function loader() {
-  const trainings = [];
-  const trainingsDays: any[] = [
+  const trainings = await getTrainings({ reha: false });
+  const trainingsDays: TrainingDay[] = [
     {
       day: "Montag",
       trainings: [],
@@ -82,13 +88,13 @@ export async function loader() {
 }
 
 export default function EventListPage() {
-  //const { trainings } = useLoaderData<typeof loader>();
+  const { trainings } = useLoaderData<typeof loader>();
   return (
     <ContentContainer className="gap-4">
       <Title name="Trainingsangebote" />
       <div className="w-full overflow-x-auto">
         <table className="whitespace-no-wrap w-full">
-          {/*trainings
+          {trainings
             .filter((day) => day.trainings.length > 0)
             .map((trainingGrouped, index) => (
               <tbody
@@ -104,12 +110,12 @@ export default function EventListPage() {
                     </td>
                   </tr>
                   {trainingGrouped.trainings.map(
-                    (training: any, index: number) => (
+                    (training, index: number) => (
                       <tr key={index} className="text-gray-700">
                         <td className="py-3 px-3">
                           {training.TrainingTimeRange.filter(
                             (timeRange) => timeRange.day === trainingGrouped.day
-                          ).map((time: any, index: number) => (
+                          ).map((time, index: number) => (
                             <p key={index}>
                               {new Date(
                                 "1970-01-01T" + time.start
@@ -126,7 +132,7 @@ export default function EventListPage() {
                         </td>
                         <td className="py-3">
                           {training.trainers.map(
-                            (trainer: any, index: number) => (
+                            (trainer, index: number) => (
                               <p className="font-semibold" key={index}>
                                 {trainer.name}
                               </p>
@@ -142,7 +148,7 @@ export default function EventListPage() {
                   )}
                 </>
               </tbody>
-            ))*/}
+            ))}
         </table>
       </div>
     </ContentContainer>

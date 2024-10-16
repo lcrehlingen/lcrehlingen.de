@@ -65,7 +65,7 @@ export default function InfinteLoading({
     }
     // Photos contain data, merge them and allow the possiblity of another fetch
     if (fetcher.data && fetcher.data.articles.length > 0) {
-      setArticles((prevPhotos: any[]) => [
+      setArticles((prevPhotos: Article[]) => [
         ...prevPhotos,
         ...fetcher.data.articles,
       ]);
@@ -78,7 +78,7 @@ export default function InfinteLoading({
       <Title name="Aktuelles" />
       <div ref={divHeight}>
         <ul className="grid w-full grid-cols-1 gap-4 lg:grid-cols-3">
-          {articles.map((article: any, index: number) => (
+          {articles.map((article, index: number) => (
             <li key={index}>
               <ArticleCard article={article} />
             </li>

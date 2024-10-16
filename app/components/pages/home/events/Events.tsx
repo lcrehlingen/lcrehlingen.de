@@ -1,15 +1,12 @@
 import { Link } from "@remix-run/react";
+import { Event } from "~/.server/events";
 import List from "~/components/shared/list/List";
 import ListItem from "~/components/shared/list/ListItem";
 import TableContainer from "~/components/TableContainer";
 
 interface EventsProps {
-  events: {
-    name: string;
-    date: string;
-    slug: string;
-  }[];
-  results: { name: string; date: string; slug: string }[];
+  events: Event[];
+  results: Event[];
 }
 export default function Events({ results, events }: EventsProps) {
   return (
@@ -71,7 +68,7 @@ export default function Events({ results, events }: EventsProps) {
                   </Link>
                 </ListItem>
               ))}
-               {events.length === 0 && (
+               {results.length === 0 && (
                 <ListItem>
                   <div className="font-medium flex-1 p-4">
                     Keine Ergebnisse gefunden

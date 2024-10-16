@@ -4,7 +4,7 @@ import { useLoaderData } from "@remix-run/react";
 import ImageCard from "~/components/shared/card/ImageCard";
 import ContentContainer from "~/components/ContentContainer";
 import Title from "~/components/Title";
-import { getTrainers } from "~/.server/trainers";
+import { getTrainers } from "~/.server/training";
 
 export const meta: MetaFunction = () => {
   return [

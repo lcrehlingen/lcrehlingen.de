@@ -41,7 +41,7 @@ export default function Impressum() {
         <p>
           <strong>Design &amp; Programmierung</strong>
           <br />
-          Niklas Marion
+          <a href="https://github.com/lcrehlingen/lcrehlingen.de">Niklas Marion</a>
         </p>
 
         <h2>

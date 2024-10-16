@@ -13,7 +13,25 @@ const TrainerSchema = z.object({
   )
 });
 
+const TrainingSchema = z.object({
+  id: z.number(),
+  name: z.string(),
+  trainers: z.array(z.object({
+    name: z.string(),
+  })),
+  location: z.string(),
+  reha: z.boolean(),
+  TrainingTimeRange: z.array(
+    z.object({
+      day: z.string(),
+      start: z.string(),
+      end: z.string(),
+    })
+  )
+});
+
 export type Trainer = z.infer<typeof TrainerSchema>;
+export type Training = z.infer<typeof TrainingSchema>;
 
 export function getTrainers({
   reha = false
@@ -36,5 +54,24 @@ export function getTrainers({
       });
     }
     return trainers;
+  });
+}
+
+export function getTrainings({
+  reha = false
+}: {
+  reha: boolean;
+}) {
+  return fetch(
+    `${process.env.STRAPI_URL}/api/trainings?populate=*&pagination[pageSize]=50&filters[reha][$eq]=${reha}`
+  ).then((res) => res.json()).then((res) => {
+    const trainings = res.data.map((data: unknown) => {
+      const training = TrainingSchema.safeParse(data)
+      if(training.success) {
+        return training.data;
+      }
+      return null;
+    }).filter((training: Training | null) => training !== null) as Training[];
+    return trainings;
   });
 }

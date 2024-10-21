@@ -30,7 +30,7 @@
     "zod": "^3.23.8"
   },
   "devDependencies": {
-    "@mdx-js/rollup": "^3.0.1",
+    "@mdx-js/rollup": "^3.1.0",
     "@remix-run/dev": "^2.13.1",
     "@remix-run/v1-route-convention": "^0.1.4",
     "@tailwindcss/aspect-ratio": "^0.4.2",

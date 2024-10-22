@@ -1,5 +1,4 @@
 import { Link } from "@remix-run/react";
-import Balancer from "react-wrap-balancer";
 import ImageCard from "~/components/shared/card/ImageCard";
 
 interface EventCardProps {
@@ -23,7 +22,7 @@ export default function EventCard({ event, image }: EventCardProps) {
         <ImageCard image={image}>
           <div className="flex flex-1 flex-col justify-between gap-2 p-4">
             <h1 className="w-full text-xl font-semibold text-gray-900">
-              <Balancer>{event.name}</Balancer>
+             {event.name}
             </h1>
             <span className="text-base text-gray-500">
               <time dateTime={new Date(event.date).toISOString()}>

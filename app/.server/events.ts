@@ -6,7 +6,7 @@ const EventSchema = z.object({
     name: z.string(),
     slug: z.string(),
     date: z.string(),
-    content: z.string().transform((content) => marked(content)),
+    content: z.string().transform((content) => marked(content)).nullable(),
     results: z.boolean()
     });
 

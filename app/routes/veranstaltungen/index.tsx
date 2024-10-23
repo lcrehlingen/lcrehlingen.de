@@ -24,6 +24,8 @@ export async function loader() {
   }).then((res) => {  
     return res.filter((event) => {
       return new Date(event.date) >= new Date();
+    }).sort((a, b) => {
+      return new Date(a.date).getTime() - new Date(b.date).getTime();
     });
   });
   return json({
@@ -46,8 +48,8 @@ export default function EventListPage() {
                 slug: event.slug,
               }}
               image={{
-                height: 1080,
-                width: 1920,
+                height: 808,
+                width: 1789,
                 src: "logo.png",
               }}
             />

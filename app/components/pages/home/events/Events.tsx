@@ -16,7 +16,9 @@ export default function Events({ results, events }: EventsProps) {
           <div className="flex w-full flex-col justify-center gap-8">
             <h2 className="text-3xl font-bold leading-none">Veranstaltungen</h2>
             <List>
-              {events.map((event, index: number) => (
+              {events.sort((a,b) => {
+                return new Date(a.date).getTime() - new Date(b.date).getTime();
+              }).map((event, index: number) => (
                 <ListItem key={index}>
                   <Link
                     className="flex-1 p-4"

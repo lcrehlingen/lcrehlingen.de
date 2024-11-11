@@ -1,5 +1,5 @@
 import { Image } from "@unpic/react";
-import TableContainer from "../../../TableContainer";
+import TableContainer from "~/components/TableContainer";
 
 export default function PromoSection() {
   return (
@@ -46,10 +46,10 @@ export default function PromoSection() {
           />
           <Image
             cdn="ipx"
-            src={"athleten/LennartZehfeld.jpg"}
+            src={"athleten/FriedaSchulz.jpg"}
             width={326}
             height={580}
-            alt="Lennart Zehfeld"
+            alt="Frieda Schulz"
             className="rounded-lg"
           />
           <Image
@@ -70,10 +70,10 @@ export default function PromoSection() {
           />
           <Image
             cdn="ipx"
-            src={"athleten/AbieHensgen.jpg"}
+            src={"athleten/NoahBohn.jpg"}
             width={1993}
             height={3543}
-            alt="Abie Hensgen"
+            alt="Noah Bohn"
             className="rounded-lg"
           />
           <Image

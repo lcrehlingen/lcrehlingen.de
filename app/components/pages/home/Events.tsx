@@ -4,11 +4,10 @@ import List from "~/components/shared/list/List";
 import ListItem from "~/components/shared/list/ListItem";
 import TableContainer from "~/components/TableContainer";
 
-interface EventsProps {
+export default function Events({ results, events }: {
   events: Event[];
   results: Event[];
-}
-export default function Events({ results, events }: EventsProps) {
+}) {
   return (
     <TableContainer
       left={

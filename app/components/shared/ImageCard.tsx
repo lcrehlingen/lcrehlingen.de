@@ -1,5 +1,4 @@
 import { Image } from "@unpic/react";
-import Card from "./Card";
 
 export type ImageCardProps = {
   children?: React.ReactNode;
@@ -14,7 +13,7 @@ export type ImageCardProps = {
 
 export default function ImageCard({ image, children, orientation="landscape"}: ImageCardProps) {
   return (
-    <Card>
+    <div className="flex h-full flex-col overflow-hidden rounded-lg  border-b-4 border-b-red-500 bg-white shadow-lg">
       <div className={orientation === "landscape" ? "aspect-h-9 aspect-w-16" : "aspect-h-5 aspect-w-4"}>
         <Image
           height={image.height}
@@ -25,6 +24,6 @@ export default function ImageCard({ image, children, orientation="landscape"}: I
         />
       </div>
       {children}
-    </Card>
+    </div>
   );
 }

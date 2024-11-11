@@ -1,7 +1,7 @@
 import type { MetaFunction } from "@remix-run/node";
 import { json } from "@remix-run/node";
 import { useLoaderData } from "@remix-run/react";
-import ImageCard from "~/components/shared/card/ImageCard";
+import ImageCard from "~/components/shared/ImageCard";
 import ContentContainer from "~/components/ContentContainer";
 import Title from "~/components/Title";
 import { getTrainers } from "~/.server/training";

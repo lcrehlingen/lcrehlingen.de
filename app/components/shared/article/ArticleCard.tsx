@@ -1,6 +1,6 @@
 import { Link } from "@remix-run/react";
-import ImageCard from "../card/ImageCard";
 import { Article } from "~/.server/articles";
+import ImageCard from "../ImageCard";
 
 export default function ArticleCard({
   article,

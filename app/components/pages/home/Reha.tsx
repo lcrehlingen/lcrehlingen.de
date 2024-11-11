@@ -1,5 +1,5 @@
 import { Link } from "@remix-run/react";
-import RehaSVG from "~/components/pages/home/reha/svg/RehaSVG";
+import RehaSVG from "~/components/pages/home/svg/RehaSVG";
 import TableContainer from "~/components/TableContainer";
 
 export default function Reha() {

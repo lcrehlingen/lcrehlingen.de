@@ -1,9 +1,9 @@
-import PromoSection from "~/components/pages/home/promo/PromoSection";
-import Sponsor from "~/components/pages/home/sponsor/Sponsor";
-import Pfingstsportfest from "~/components/pages/home/pfinstsportfest/Pfingstsportfest";
-import FSJ from "~/components/pages/home/fsj/FSJ";
-import Reha from "~/components/pages/home/reha/Reha";
-import Events from "~/components/pages/home/events/Events";
+import PromoSection from "~/components/pages/home/PromoSection";
+import Sponsor from "~/components/pages/home/Sponsor";
+import Pfingstsportfest from "~/components/pages/home/Pfingstsportfest";
+import FSJ from "~/components/pages/home/FSJ";
+import Reha from "~/components/pages/home/Reha";
+import Events from "~/components/pages/home/Events";
 import BackgroundHeader from "~/components/BackgroundHeader";
 import ArticleHighlightList from "~/components/shared/article/ArticleHighlightList";
 import { getArticles } from "~/.server/articles";

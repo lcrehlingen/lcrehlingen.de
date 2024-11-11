@@ -19,9 +19,18 @@ export async function getLatestEventsAndResults() {
         return res.filter((event) => {
           return new Date(event.date) >=
             new Date();
+        }).sort((a, b) => {
+          return new Date(a.date) < new Date(b.date) ? -1 : 1;
         });
       }),
-    getEvents({ results: true, limit: 5 }),
+    getEvents({ results: true, limit: 5 }).then((res) => {
+        return res.filter((event) => {
+          return new Date(event.date) <=
+            new Date();
+        }).sort((a, b) => {
+          return new Date(a.date) < new Date(b.date) ? 1 : -1;
+        });
+      }),
   ]);
   return {
     events,

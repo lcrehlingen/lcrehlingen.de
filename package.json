@@ -25,7 +25,7 @@
     "react-dom": "^18.3.1",
     "react-photo-album": "^3.0.2",
     "remark-gfm": "^4.0.0",
-    "yet-another-react-lightbox": "^3.21.6",
+    "yet-another-react-lightbox": "^3.21.7",
     "zod": "^3.23.8"
   },
   "devDependencies": {

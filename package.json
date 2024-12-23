@@ -13,7 +13,7 @@
   "dependencies": {
     "@remix-run/express": "^2.14.0",
     "@remix-run/node": "^2.14.0",
-    "@remix-run/react": "^2.14.0",
+    "@remix-run/react": "^2.15.2",
     "@unpic/react": "^0.1.14",
     "cross-env": "^7.0.3",
     "dotenv": "^16.4.5",

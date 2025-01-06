@@ -62,10 +62,10 @@ importers:
         version: 3.1.0(rollup@4.24.0)
       '@remix-run/dev':
         specifier: ^2.15.2
-        version: 2.15.2(@remix-run/react@2.15.2(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(typescript@5.7.2))(@types/node@22.7.5)(ts-node@10.9.2(@types/node@22.7.5)(typescript@5.7.2))(typescript@5.7.2)(vite@6.0.6(@types/node@22.7.5)(jiti@2.3.3)(yaml@2.5.1))
+        version: 2.15.2(@remix-run/react@2.15.2(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(typescript@5.7.2))(@types/node@22.7.5)(ts-node@10.9.2(@types/node@22.7.5)(typescript@5.7.2))(typescript@5.7.2)(vite@6.0.7(@types/node@22.7.5)(jiti@2.3.3)(yaml@2.5.1))
       '@remix-run/v1-route-convention':
         specifier: ^0.1.4
-        version: 0.1.4(@remix-run/dev@2.15.2(@remix-run/react@2.15.2(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(typescript@5.7.2))(@types/node@22.7.5)(ts-node@10.9.2(@types/node@22.7.5)(typescript@5.7.2))(typescript@5.7.2)(vite@6.0.6(@types/node@22.7.5)(jiti@2.3.3)(yaml@2.5.1)))
+        version: 0.1.4(@remix-run/dev@2.15.2(@remix-run/react@2.15.2(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(typescript@5.7.2))(@types/node@22.7.5)(ts-node@10.9.2(@types/node@22.7.5)(typescript@5.7.2))(typescript@5.7.2)(vite@6.0.7(@types/node@22.7.5)(jiti@2.3.3)(yaml@2.5.1)))
       '@tailwindcss/aspect-ratio':
         specifier: ^0.4.2
         version: 0.4.2(tailwindcss@3.4.17(ts-node@10.9.2(@types/node@22.7.5)(typescript@5.7.2)))
@@ -118,11 +118,11 @@ importers:
         specifier: ^5.7.2
         version: 5.7.2
       vite:
-        specifier: ^6.0.6
-        version: 6.0.6(@types/node@22.7.5)(jiti@2.3.3)(yaml@2.5.1)
+        specifier: ^6.0.7
+        version: 6.0.7(@types/node@22.7.5)(jiti@2.3.3)(yaml@2.5.1)
       vite-tsconfig-paths:
         specifier: ^5.1.4
-        version: 5.1.4(typescript@5.7.2)(vite@6.0.6(@types/node@22.7.5)(jiti@2.3.3)(yaml@2.5.1))
+        version: 5.1.4(typescript@5.7.2)(vite@6.0.7(@types/node@22.7.5)(jiti@2.3.3)(yaml@2.5.1))
 
 packages:
 
@@ -4625,8 +4625,8 @@ packages:
       terser:
         optional: true
 
-  vite@6.0.6:
-    resolution: {integrity: sha512-NSjmUuckPmDU18bHz7QZ+bTYhRR0iA72cs2QAxCqDpafJ0S6qetco0LB3WW2OxlMHS0JmAv+yZ/R3uPmMyGTjQ==}
+  vite@6.0.7:
+    resolution: {integrity: sha512-RDt8r/7qx9940f8FcOIAH9PTViRrghKaK2K1jY3RaAURrEUbm9Du1mJ72G+jlhtG3WwodnfzY8ORQZbBavZEAQ==}
     engines: {node: ^18.0.0 || ^20.0.0 || >=22.0.0}
     hasBin: true
     peerDependencies:
@@ -5536,7 +5536,7 @@ snapshots:
   '@pkgjs/parseargs@0.11.0':
     optional: true
 
-  '@remix-run/dev@2.15.2(@remix-run/react@2.15.2(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(typescript@5.7.2))(@types/node@22.7.5)(ts-node@10.9.2(@types/node@22.7.5)(typescript@5.7.2))(typescript@5.7.2)(vite@6.0.6(@types/node@22.7.5)(jiti@2.3.3)(yaml@2.5.1))':
+  '@remix-run/dev@2.15.2(@remix-run/react@2.15.2(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(typescript@5.7.2))(@types/node@22.7.5)(ts-node@10.9.2(@types/node@22.7.5)(typescript@5.7.2))(typescript@5.7.2)(vite@6.0.7(@types/node@22.7.5)(jiti@2.3.3)(yaml@2.5.1))':
     dependencies:
       '@babel/core': 7.25.7
       '@babel/generator': 7.25.7
@@ -5596,7 +5596,7 @@ snapshots:
       ws: 7.5.10
     optionalDependencies:
       typescript: 5.7.2
-      vite: 6.0.6(@types/node@22.7.5)(jiti@2.3.3)(yaml@2.5.1)
+      vite: 6.0.7(@types/node@22.7.5)(jiti@2.3.3)(yaml@2.5.1)
     transitivePeerDependencies:
       - '@types/node'
       - babel-plugin-macros
@@ -5658,9 +5658,9 @@ snapshots:
     optionalDependencies:
       typescript: 5.7.2
 
-  '@remix-run/v1-route-convention@0.1.4(@remix-run/dev@2.15.2(@remix-run/react@2.15.2(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(typescript@5.7.2))(@types/node@22.7.5)(ts-node@10.9.2(@types/node@22.7.5)(typescript@5.7.2))(typescript@5.7.2)(vite@6.0.6(@types/node@22.7.5)(jiti@2.3.3)(yaml@2.5.1)))':
+  '@remix-run/v1-route-convention@0.1.4(@remix-run/dev@2.15.2(@remix-run/react@2.15.2(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(typescript@5.7.2))(@types/node@22.7.5)(ts-node@10.9.2(@types/node@22.7.5)(typescript@5.7.2))(typescript@5.7.2)(vite@6.0.7(@types/node@22.7.5)(jiti@2.3.3)(yaml@2.5.1)))':
     dependencies:
-      '@remix-run/dev': 2.15.2(@remix-run/react@2.15.2(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(typescript@5.7.2))(@types/node@22.7.5)(ts-node@10.9.2(@types/node@22.7.5)(typescript@5.7.2))(typescript@5.7.2)(vite@6.0.6(@types/node@22.7.5)(jiti@2.3.3)(yaml@2.5.1))
+      '@remix-run/dev': 2.15.2(@remix-run/react@2.15.2(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(typescript@5.7.2))(@types/node@22.7.5)(ts-node@10.9.2(@types/node@22.7.5)(typescript@5.7.2))(typescript@5.7.2)(vite@6.0.7(@types/node@22.7.5)(jiti@2.3.3)(yaml@2.5.1))
       minimatch: 7.4.6
 
   '@remix-run/web-blob@3.1.0':
@@ -6934,7 +6934,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  eslint-module-utils@2.12.0(@typescript-eslint/parser@6.21.0(eslint@8.57.1)(typescript@5.7.2))(eslint-import-resolver-node@0.3.9)(eslint-import-resolver-typescript@3.7.0(eslint-plugin-import@2.31.0)(eslint@8.57.1))(eslint@8.57.1):
+  eslint-module-utils@2.12.0(@typescript-eslint/parser@6.21.0(eslint@8.57.1)(typescript@5.7.2))(eslint-import-resolver-node@0.3.9)(eslint-import-resolver-typescript@3.7.0)(eslint@8.57.1):
     dependencies:
       debug: 3.2.7
     optionalDependencies:
@@ -6956,7 +6956,7 @@ snapshots:
       doctrine: 2.1.0
       eslint: 8.57.1
       eslint-import-resolver-node: 0.3.9
-      eslint-module-utils: 2.12.0(@typescript-eslint/parser@6.21.0(eslint@8.57.1)(typescript@5.7.2))(eslint-import-resolver-node@0.3.9)(eslint-import-resolver-typescript@3.7.0(eslint-plugin-import@2.31.0)(eslint@8.57.1))(eslint@8.57.1)
+      eslint-module-utils: 2.12.0(@typescript-eslint/parser@6.21.0(eslint@8.57.1)(typescript@5.7.2))(eslint-import-resolver-node@0.3.9)(eslint-import-resolver-typescript@3.7.0)(eslint@8.57.1)
       hasown: 2.0.2
       is-core-module: 2.15.1
       is-glob: 4.0.3
@@ -10306,13 +10306,13 @@ snapshots:
       - supports-color
       - terser
 
-  vite-tsconfig-paths@5.1.4(typescript@5.7.2)(vite@6.0.6(@types/node@22.7.5)(jiti@2.3.3)(yaml@2.5.1)):
+  vite-tsconfig-paths@5.1.4(typescript@5.7.2)(vite@6.0.7(@types/node@22.7.5)(jiti@2.3.3)(yaml@2.5.1)):
     dependencies:
       debug: 4.3.7
       globrex: 0.1.2
       tsconfck: 3.1.3(typescript@5.7.2)
     optionalDependencies:
-      vite: 6.0.6(@types/node@22.7.5)(jiti@2.3.3)(yaml@2.5.1)
+      vite: 6.0.7(@types/node@22.7.5)(jiti@2.3.3)(yaml@2.5.1)
     transitivePeerDependencies:
       - supports-color
       - typescript
@@ -10326,7 +10326,7 @@ snapshots:
       '@types/node': 22.7.5
       fsevents: 2.3.3
 
-  vite@6.0.6(@types/node@22.7.5)(jiti@2.3.3)(yaml@2.5.1):
+  vite@6.0.7(@types/node@22.7.5)(jiti@2.3.3)(yaml@2.5.1):
     dependencies:
       esbuild: 0.24.2
       postcss: 8.4.49

@@ -4,12 +4,14 @@ import tsconfigPaths from "vite-tsconfig-paths";
 import { createRoutesFromFolders } from "@remix-run/v1-route-convention";
 import remarkGfm from "remark-gfm";
 import mdx from "@mdx-js/rollup";
+import tailwindcss from "@tailwindcss/vite";
 
 export default defineConfig({
   plugins: [
     mdx({
       remarkPlugins: [remarkGfm],
     }),
+    tailwindcss(),
     remix({
       future: {
         v3_fetcherPersist: true,

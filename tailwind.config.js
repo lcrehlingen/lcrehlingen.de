@@ -1,8 +1,5 @@
-import type { Config } from "tailwindcss";
-import typography from "@tailwindcss/typography";
-import aspectRatio from "@tailwindcss/aspect-ratio";
-
-export default {
+/** @type {import('tailwindcss').Config} */
+module.exports = {
   content: ["./app/**/{**,.client,.server}/**/*.{js,jsx,ts,tsx}"],
   theme: {
     extend: {
@@ -23,5 +20,5 @@ export default {
       },
     },
   },
-  plugins: [typography, aspectRatio,],
-} satisfies Config;
+  plugins: [require('@tailwindcss/typography'), require("@tailwindcss/aspect-ratio")],
+}

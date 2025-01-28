@@ -3,12 +3,8 @@ import { Image } from "@unpic/react";
 export default function Sponsor() {
   const sponsors = [
     {
-      name: "NTA",
-      image: "/sponsoren/nta_atos.png",
-    },
-    {
-      "name": "",
-      "image": "",
+      name: "",
+      image: "",
     },
     {
       name: "Moore",
@@ -18,6 +14,10 @@ export default function Sponsor() {
       name: "Puma M&M",
       image: "/sponsoren/puma_mm.png",
     },
+    {
+      name: "",
+      image: "",
+    },
   ];
   return (
     <section className="flex flex-col items-center justify-center gap-2 px-4 md:px-10 lg:max-w-6xl">
@@ -25,11 +25,14 @@ export default function Sponsor() {
         Unsere Sponsoren und Partner
       </h2>
       <div className="flex justify-center">
-        <ul className="grid grid-cols-1 gap-4 md:grid-cols-4">
+        <ul className="grid grid-cols-4 gap-3 md:grid-cols-4">
           {sponsors.map((sponsor, index) => (
             <li key={index}>
-              {index === 1 ? (
+              {/*{index === 1 ? (
                 <hr className="mx-auto my-4 h-1 w-48 rounded border-0 bg-gray-100 dark:bg-gray-700 md:my-10 md:invisible" />
+              ) : (*/}
+              {sponsor.name === "" ? (
+                <div></div>
               ) : (
                 <Image
                   alt={sponsor.name}

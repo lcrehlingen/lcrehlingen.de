@@ -13,7 +13,7 @@ export const meta: MetaFunction = () => {
 };
 
 export default function MemberPage() {
-  const files = ["datenschutzerklaerung.pdf"];
+  const files = ["mitgliedsantrag.pdf", "datenschutzerklaerung.pdf"];
   return (
     <ContentContainer className="gap-4">
       <Title name="Mitglied werden" />

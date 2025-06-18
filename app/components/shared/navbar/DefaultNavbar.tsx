@@ -42,7 +42,7 @@ export default function DefaultNavbar() {
             </svg>
           }
         />
-        <NavbarDropdownItem
+        {/*<NavbarDropdownItem
           to="/galerie"
           name="Bilder"
           icon={
@@ -57,7 +57,7 @@ export default function DefaultNavbar() {
               <circle strokeWidth="1" stroke="#14B8A6" cx="12" cy="13" r="4" />
             </svg>
           }
-        />
+        />*/}
         <NavbarDropdownItem
           to="/ergebnisse"
           name="Ergebnisse"

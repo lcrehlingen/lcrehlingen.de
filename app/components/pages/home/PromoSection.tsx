@@ -54,10 +54,10 @@ export default function PromoSection() {
           />
           <Image
             cdn="ipx"
-            src={"athleten/HannahRödel.jpg"}
-            width={422}
-            height={750}
-            alt="Hannah Rödel"
+            src={"athleten/jugend.jpg"}
+            width={3375}
+            height={6000}
+            alt="Jugendgruppe U16"
             className="rounded-lg"
           />
           <Image
@@ -79,8 +79,8 @@ export default function PromoSection() {
           <Image
             cdn="ipx"
             src={"athleten/LiaraSchulze.jpg"}
-            width={1268}
-            height={2256}
+            width={3211}
+            height={5708}
             alt="Liara Schulze"
             className="rounded-lg"
           />

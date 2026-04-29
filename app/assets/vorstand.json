@@ -20,13 +20,8 @@
         "image": "/vorstand/hans-peter-schramm.jpg"
     },
     {
-        "name": "Niklas Marion",
-        "position": "Sportwart",
-        "image": "/vorstand/niklas-marion.png"
-    },
-    {
         "name": "Philipp Stief",
-        "position": "Schriftführer",
+        "position": "Sportwart",
         "image": "/vorstand/placeholder.png"
     },
     {
@@ -40,9 +35,9 @@
         "image": "/vorstand/placeholder.png"
     },
     {
-        "name": "Elena Dittlinger",
+        "name": "Myriam Klaser-Bost",
         "position": "Jugendwartin",
-        "image": "/vorstand/elena-dittlinger.jpg"
+        "image": "/vorstand/placeholder.png"
     },
     {
         "name": "Kerstin Dandl",
@@ -73,11 +68,6 @@
         "name": "Thorsten Ruf",
         "position": "Beisitzer",
         "image": "/vorstand/thorsten-ruf.jpg"
-    },
-    {
-        "name": "Dennis Zimmer",
-        "position": "Beisitzer",
-        "image": "/vorstand/dennis-zimmer.png"
     },
     {
         "name": "Norbert Baldauf",

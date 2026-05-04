@@ -27,7 +27,7 @@
     "react-photo-album": "^3.6.0",
     "remark-gfm": "^4.0.1",
     "yet-another-react-lightbox": "^3.31.0",
-    "zod": "^4.3.6"
+    "zod": "^4.4.3"
   },
   "devDependencies": {
     "@mdx-js/rollup": "^3.1.1",

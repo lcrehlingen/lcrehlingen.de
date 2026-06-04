@@ -28,16 +28,15 @@ export const loader = async () => {
     getArticles({ start: 0, limit: 6 }),
     getLatestEventsAndResults(),
   ]);
-  const { events, results } = latest;
+  const { events } = latest;
   return json({
     articles,
     events,
-    results,
   });
 };
 
 export default function Index() {
-  const { articles, events, results } = useLoaderData<typeof loader>();
+  const { articles, events } = useLoaderData<typeof loader>();
   return (
     <>
       <BackgroundHeader title="Herzlich Willkommen beim Leichtathletik Club Rehlingen" />
@@ -49,7 +48,7 @@ export default function Index() {
         <div className="mx-auto flex flex-col items-center justify-center gap-16 md:gap-24 px-4 md:px-10 lg:max-w-6xl w-full">
           <Sponsor />
           <PromoSection />
-          <Events events={events} results={results} />
+          <Events events={events} />
           <Reha />
           <Pfingstsportfest />
           <FSJ />

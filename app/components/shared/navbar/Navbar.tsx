@@ -26,8 +26,7 @@ export default function Navbar({
               flex
               flex-col
               rounded-2xl
-              bg-white/95
-              backdrop-blur-md
+              bg-white
               p-3
               px-6
               font-source-sans

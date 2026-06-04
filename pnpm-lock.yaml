@@ -53,6 +53,9 @@ importers:
       remark-gfm:
         specifier: ^4.0.1
         version: 4.0.1
+      sharp:
+        specifier: ^0.34.5
+        version: 0.34.5
       yet-another-react-lightbox:
         specifier: ^3.31.0
         version: 3.31.0(@types/react-dom@19.2.3(@types/react@19.2.14))(@types/react@19.2.14)(react-dom@19.2.5(react@19.2.5))(react@19.2.5)
@@ -2544,10 +2547,6 @@ packages:
     resolution: {integrity: sha512-pGjwhsmsp4kL2RTz08wcOlGN83otlqHeD/Z5T8GXZB+/YcpQ/dgo+lbU8ZsGxV0HIvqqxo9l7mqYwyYMD9bKDg==}
     engines: {node: '>=0.10'}
     hasBin: true
-
-  detect-libc@2.0.4:
-    resolution: {integrity: sha512-3UDv+G9CsCKO1WKMGw9fwq/SWJYbI0c5Y7LU1AXYoDdbhE2AHQ6N6Nb34sG8Fj7T5APy8qXDCKuuIHd1BR0tVA==}
-    engines: {node: '>=8'}
 
   detect-libc@2.1.2:
     resolution: {integrity: sha512-Btj2BOOO83o3WyH59e8MgXsxEQVcarkUOpEYrubB0urwnN10yQ364rsiByU11nZlqWYZm05i/of7io4mzihBtQ==}
@@ -6368,7 +6367,7 @@ snapshots:
 
   '@npmcli/fs@3.1.1':
     dependencies:
-      semver: 7.7.2
+      semver: 7.7.4
 
   '@npmcli/git@4.1.0':
     dependencies:
@@ -6378,7 +6377,7 @@ snapshots:
       proc-log: 3.0.0
       promise-inflight: 1.0.1
       promise-retry: 2.0.1
-      semver: 7.7.2
+      semver: 7.7.4
       which: 3.0.1
     transitivePeerDependencies:
       - bluebird
@@ -6391,7 +6390,7 @@ snapshots:
       json-parse-even-better-errors: 3.0.2
       normalize-package-data: 5.0.0
       proc-log: 3.0.0
-      semver: 7.7.2
+      semver: 7.7.4
     transitivePeerDependencies:
       - bluebird
 
@@ -7787,8 +7786,6 @@ snapshots:
 
   detect-libc@1.0.3: {}
 
-  detect-libc@2.0.4: {}
-
   detect-libc@2.1.2: {}
 
   devlop@1.1.0:
@@ -9159,7 +9156,7 @@ snapshots:
 
   lightningcss@1.32.0:
     dependencies:
-      detect-libc: 2.0.4
+      detect-libc: 2.1.2
     optionalDependencies:
       lightningcss-android-arm64: 1.32.0
       lightningcss-darwin-arm64: 1.32.0
@@ -10124,14 +10121,14 @@ snapshots:
     dependencies:
       hosted-git-info: 6.1.1
       is-core-module: 2.15.1
-      semver: 7.7.2
+      semver: 7.7.4
       validate-npm-package-license: 3.0.4
 
   normalize-path@3.0.0: {}
 
   npm-install-checks@6.3.0:
     dependencies:
-      semver: 7.7.2
+      semver: 7.7.4
 
   npm-normalize-package-bin@3.0.1: {}
 
@@ -10139,7 +10136,7 @@ snapshots:
     dependencies:
       hosted-git-info: 6.1.1
       proc-log: 3.0.0
-      semver: 7.7.2
+      semver: 7.7.4
       validate-npm-package-name: 5.0.1
 
   npm-pick-manifest@8.0.2:
@@ -10147,7 +10144,7 @@ snapshots:
       npm-install-checks: 6.3.0
       npm-normalize-package-bin: 3.0.1
       npm-package-arg: 10.1.0
-      semver: 7.7.2
+      semver: 7.7.4
 
   npm-run-path@4.0.1:
     dependencies:

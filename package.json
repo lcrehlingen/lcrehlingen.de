@@ -7,7 +7,7 @@
     "build": "remix vite:build",
     "dev": "node ./server.js",
     "lint": "eslint --ignore-path .gitignore --cache --cache-location ./node_modules/.cache/eslint .",
-    "start": "cross-env NODE_ENV=production node ./server.js",
+    "start": "cross-env NODE_ENV=production MALLOC_ARENA_MAX=2 node ./server.js",
     "typecheck": "tsc"
   },
   "dependencies": {
@@ -26,6 +26,7 @@
     "react-dom": "^19.2.5",
     "react-photo-album": "^3.6.0",
     "remark-gfm": "^4.0.1",
+    "sharp": "^0.34.5",
     "yet-another-react-lightbox": "^3.31.0",
     "zod": "^4.3.6"
   },

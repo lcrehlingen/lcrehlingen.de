@@ -1,4 +1,4 @@
-import { Link } from "@remix-run/react";
+import { NavLink } from "@remix-run/react";
 import type { ReactNode } from "react";
 
 export default function NavbarDropdownItem({
@@ -12,13 +12,31 @@ export default function NavbarDropdownItem({
 }) {
   return (
     <li>
-      <Link
+      <NavLink
         to={to}
-        className="flex flex-row items-center gap-3 rounded-lg p-2 hover:bg-gray-200"
+        className={({ isActive }) =>
+          `flex flex-row items-center gap-4 rounded-xl p-2.5 transition-all duration-200 ${
+            isActive
+              ? "bg-red-50 text-red-600 font-bold"
+              : "text-gray-700 hover:bg-gray-50 hover:text-red-600"
+          }`
+        }
       >
-        <div className="rounded-lg bg-red-500 p-3 text-white ">{icon}</div>
-        <p className="font-semibold">{name}</p>
-      </Link>
+        {({ isActive }) => (
+          <>
+            <div
+              className={`rounded-xl p-2.5 text-white transition-all duration-200 ${
+                isActive
+                  ? "bg-red-600 shadow-md shadow-red-200/50"
+                  : "bg-red-500"
+              }`}
+            >
+              {icon}
+            </div>
+            <span className="font-semibold text-sm lg:text-base">{name}</span>
+          </>
+        )}
+      </NavLink>
     </li>
   );
 }

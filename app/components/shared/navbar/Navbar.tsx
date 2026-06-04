@@ -1,6 +1,6 @@
 import { Link, useLocation } from "@remix-run/react";
 import type { ReactNode } from "react";
-import { useEffect , useState} from "react";
+import { useEffect, useState } from "react";
 
 export default function Navbar({
   children,
@@ -11,34 +11,46 @@ export default function Navbar({
 }) {
   const [open, setOpen] = useState(false);
   const location = useLocation();
+
   useEffect(() => {
     setOpen(false);
   }, [location]);
+
   return (
     <>
-      <header className="flex justify-center">
-        <div className={`container absolute z-30 px-4 md:px-10`}>
+      <header className="flex justify-center w-full">
+        <div className={`container absolute z-30 px-4 lg:px-10`}>
           <nav
             className="
-          mt-2
-          flex
-          flex-col
-          rounded-md
-          bg-white p-4
-          font-source-sans md:mt-3 md:flex-row
-          md:items-center
-          md:justify-between
-        "
+              mt-2
+              flex
+              flex-col
+              rounded-2xl
+              bg-white/95
+              backdrop-blur-md
+              p-3
+              px-6
+              font-source-sans
+              shadow-sm
+              border
+              border-gray-100/80
+              transition-all
+              duration-300
+              lg:mt-4
+              lg:flex-row
+              lg:items-center
+              lg:justify-between
+            "
             aria-label="Navigation"
           >
-            <div className="flex flex-row justify-between">
+            <div className="flex flex-row items-center justify-between w-full lg:w-auto">
               <Link
                 to={root}
-                className="rounded-md bg-transparent p-2"
+                className="rounded-xl bg-transparent p-1 transition-transform duration-200 hover:scale-[1.02]"
                 aria-label="Logo"
               >
                 <svg
-                  className="h-16 w-auto font-source-sans"
+                  className="h-14 sm:h-16 w-auto font-source-sans"
                   viewBox="0 0 1789 808"
                   xmlns="http://www.w3.org/2000/svg"
                 >
@@ -62,7 +74,18 @@ export default function Navbar({
                 </svg>
               </Link>
               <button
-                className="focus:outline-none md:hidden"
+                type="button"
+                className="
+                  focus:outline-none
+                  lg:hidden
+                  p-2
+                  rounded-xl
+                  text-gray-700
+                  hover:bg-gray-100
+                  hover:text-red-600
+                  transition-colors
+                  duration-200
+                "
                 aria-label="Menu"
                 onClick={() => setOpen(!open)}
               >
@@ -70,7 +93,7 @@ export default function Navbar({
                   <svg
                     fill="currentColor"
                     viewBox="0 0 20 20"
-                    className="h-6 w-6"
+                    className="h-6 w-6 transition-transform duration-200 rotate-90"
                   >
                     <path
                       fillRule="evenodd"
@@ -82,7 +105,7 @@ export default function Navbar({
                   <svg
                     fill="currentColor"
                     viewBox="0 0 20 20"
-                    className="h-6 w-6"
+                    className="h-6 w-6 transition-transform duration-200"
                   >
                     <path
                       fillRule="evenodd"
@@ -94,9 +117,32 @@ export default function Navbar({
               </button>
             </div>
             <ul
-              className={`flex-col gap-2 bg-white  md:flex md:h-fit md:flex-row md:items-center md:justify-end ${
-                open ? "flex" : "hidden flex-wrap"
-              }`}
+              className={`
+                flex-col
+                gap-1
+                transition-all
+                duration-300
+                ease-in-out
+                border-t
+                border-gray-100
+                pt-3
+                mt-3
+                lg:pt-0
+                lg:mt-0
+                lg:border-t-0
+                lg:flex
+                lg:h-fit
+                lg:flex-row
+                lg:items-center
+                lg:justify-end
+                lg:gap-1
+                xl:gap-3
+                ${
+                  open
+                    ? "flex opacity-100 max-h-[80vh] overflow-y-auto lg:overflow-visible"
+                    : "hidden lg:flex max-h-0 lg:max-h-none overflow-hidden lg:overflow-visible opacity-0 lg:opacity-100"
+                }
+              `}
             >
               {children}
             </ul>

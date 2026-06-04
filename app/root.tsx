@@ -27,7 +27,8 @@ export function Layout({ children }: { children: React.ReactNode }) {
       </head>
       <body className="flex min-h-screen flex-1 flex-col">
         <DefaultNavbar />
-        {error ? (
+        <main className="flex-1 w-full flex flex-col">
+          {error ? (
           <ContentContainer>
             <h1
               className="
@@ -121,6 +122,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
         ) : (
           children
         )}
+        </main>
         <GoTop />
         <ScrollRestoration />
         <Scripts />

@@ -12,6 +12,39 @@ sharp.concurrency(1);
 
 const CACHE_DIR = path.resolve("./.cache/ipx");
 
+// Periodically clean up cache files that haven't been accessed/modified in 7 days
+function cleanupIpxCache() {
+  const sevenDaysAgo = Date.now() - 7 * 24 * 60 * 60 * 1000;
+
+  fs.promises.readdir(CACHE_DIR)
+    .then((files) => {
+      return Promise.all(
+        files.map((file) => {
+          const filePath = path.join(CACHE_DIR, file);
+          return fs.promises.stat(filePath)
+            .then((stats) => {
+              if (stats.isFile() && stats.mtimeMs < sevenDaysAgo) {
+                return fs.promises.unlink(filePath).catch(() => {});
+              }
+            })
+            .catch(() => {}); // Ignore stat errors (e.g., if a file was deleted in parallel)
+        })
+      );
+    })
+    .catch((err) => {
+      if (err.code !== "ENOENT") {
+        console.error("Error during IPX cache cleanup:", err);
+      }
+    });
+}
+
+// Run cleanup on startup and schedule to run every 24 hours
+cleanupIpxCache();
+const cleanupTimer = setInterval(cleanupIpxCache, 24 * 60 * 60 * 1000);
+if (cleanupTimer.unref) {
+  cleanupTimer.unref(); // Prevent blocking process exit
+}
+
 const ipx = createIPX({
   storage: ipxFSStorage({ dir: "./public"}),
   httpStorage: ipxHttpStorage({ domains: [process.env.STRAPI_URL] }),
@@ -47,9 +80,20 @@ app.use(
     if (fs.existsSync(rawPath) && fs.existsSync(metaPath)) {
       try {
         const contentType = fs.readFileSync(metaPath, "utf8");
+
+        // Touch files to update modification/access times so they don't get cleaned up (works reliably even with 'noatime' mount)
+        const now = new Date();
+        fs.promises.utimes(rawPath, now, now).catch(() => {});
+        fs.promises.utimes(metaPath, now, now).catch(() => {});
+
         res.setHeader("Content-Type", contentType);
         res.setHeader("Cache-Control", "public, max-age=31536000, immutable");
-        return res.sendFile(rawPath);
+        return res.sendFile(rawPath, { dotfiles: "allow" }, (err) => {
+          if (err && !res.headersSent) {
+            console.error("Failed to send IPX cached file, generating fresh:", err);
+            next();
+          }
+        });
       } catch (err) {
         console.error("Failed to read IPX cache, falling back to live generation:", err);
       }

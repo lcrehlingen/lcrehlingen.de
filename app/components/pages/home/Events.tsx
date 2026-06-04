@@ -12,17 +12,17 @@ export default function Events({ results, events }: {
     <TableContainer
       left={
         <>
-          <div className="flex w-full flex-col justify-center gap-8">
-            <h2 className="text-3xl font-bold leading-none">Veranstaltungen</h2>
+          <div className="flex w-full flex-col justify-center gap-6">
+            <h2 className="text-2xl font-bold tracking-tight text-gray-900 leading-none">Veranstaltungen</h2>
             <List>
               {events.map((event, index: number) => (
                 <ListItem key={index}>
                   <Link
-                    className="flex-1 p-4"
+                    className="group flex flex-col flex-1 p-4"
                     to={`/veranstaltungen/${event.slug}`}
                   >
-                    <div className="font-medium">{event.name}</div>
-                    <div className="text-sm">
+                    <div className="font-semibold text-gray-800 group-hover:text-red-600 transition-colors duration-200">{event.name}</div>
+                    <div className="text-xs text-gray-400 mt-1">
                       {new Date(event.date).toLocaleDateString("de-DE", {
                         timeZone: "Europe/Berlin",
                         year: "numeric",
@@ -35,7 +35,7 @@ export default function Events({ results, events }: {
               ))}
               {events.length === 0 && (
                 <ListItem>
-                  <div className="font-medium flex-1 p-4">
+                  <div className="font-medium flex-1 p-4 text-gray-500">
                     Keine bevorstehenden Veranstaltungen
                   </div>
                 </ListItem>
@@ -46,17 +46,17 @@ export default function Events({ results, events }: {
       }
       right={
         <>
-          <div className="flex w-full flex-col justify-center gap-8">
-            <h2 className="text-3xl font-bold leading-none">Ergebnisse</h2>
+          <div className="flex w-full flex-col justify-center gap-6">
+            <h2 className="text-2xl font-bold tracking-tight text-gray-900 leading-none">Ergebnisse</h2>
             <List>
               {results.map((event, index) => (
                 <ListItem key={index}>
                   <Link
-                    className="flex-1 p-4"
+                    className="group flex flex-col flex-1 p-4"
                     to={`/veranstaltungen/${event.slug}`}
                   >
-                    <div className="font-medium">{event.name}</div>
-                    <div className="text-sm">
+                    <div className="font-semibold text-gray-800 group-hover:text-red-600 transition-colors duration-200">{event.name}</div>
+                    <div className="text-xs text-gray-400 mt-1">
                       {new Date(event.date).toLocaleDateString("de-DE", {
                         timeZone: "Europe/Berlin",
                         year: "numeric",
@@ -69,7 +69,7 @@ export default function Events({ results, events }: {
               ))}
                {results.length === 0 && (
                 <ListItem>
-                  <div className="font-medium flex-1 p-4">
+                  <div className="font-medium flex-1 p-4 text-gray-500">
                     Keine Ergebnisse gefunden
                   </div>
                 </ListItem>

@@ -41,12 +41,12 @@ export default function Index() {
   return (
     <>
       <BackgroundHeader title="Herzlich Willkommen beim Leichtathletik Club Rehlingen" />
-      <div className="container mx-auto mb-32 flex flex-col gap-8">
-        <div className="-mt-24 flex flex-col gap-8 px-4 md:px-10">
+      <div className="container mx-auto mb-32 flex flex-col gap-16 md:gap-24">
+        <div className="-mt-24 flex flex-col gap-16 px-4 md:px-10">
           <ArticleHighlightList articles={articles} />
         </div>
 
-        <div className="mx-auto flex flex-col items-center justify-center gap-8 px-4 md:px-10 lg:max-w-6xl">
+        <div className="mx-auto flex flex-col items-center justify-center gap-16 md:gap-24 px-4 md:px-10 lg:max-w-6xl w-full">
           <Sponsor />
           <PromoSection />
           <Events events={events} results={results} />

@@ -5,11 +5,11 @@ export default function PromoSection() {
   return (
     <TableContainer
       left={
-        <div className="flex flex-col gap-4">
-          <h2 className="text-3xl font-extrabold tracking-tight">
+        <div className="flex flex-col gap-6 pr-0 md:pr-4">
+          <h2 className="text-3xl font-extrabold tracking-tight text-gray-900">
             LC Rehlingen
           </h2>
-          <div className="flex flex-col gap-4 text-lg text-gray-600">
+          <div className="flex flex-col gap-4 text-base md:text-lg text-gray-600 leading-relaxed">
             <p>
               Der Leichtathletik Club Rehlingen (LCR) begrüßt Sie herzlich auf
               seiner Homepage. Seit 1957 fördert und praktiziert der LCR für
@@ -42,7 +42,7 @@ export default function PromoSection() {
             width={309}
             height={550}
             alt="Richard Ringer"
-            className="rounded-lg"
+            className="rounded-2xl shadow-sm hover:shadow-md transition-shadow duration-300"
           />
           <Image
             cdn="ipx"
@@ -50,7 +50,7 @@ export default function PromoSection() {
             width={326}
             height={580}
             alt="Frieda Schulz"
-            className="rounded-lg"
+            className="rounded-2xl shadow-sm hover:shadow-md transition-shadow duration-300"
           />
           <Image
             cdn="ipx"
@@ -58,7 +58,7 @@ export default function PromoSection() {
             width={3375}
             height={6000}
             alt="Jugendgruppe U16"
-            className="rounded-lg"
+            className="rounded-2xl shadow-sm hover:shadow-md transition-shadow duration-300"
           />
           <Image
             cdn="ipx"
@@ -66,7 +66,7 @@ export default function PromoSection() {
             width={1020}
             height={1815}
             alt="Alexander Bock"
-            className="rounded-lg"
+            className="rounded-2xl shadow-sm hover:shadow-md transition-shadow duration-300"
           />
           <Image
             cdn="ipx"
@@ -74,7 +74,7 @@ export default function PromoSection() {
             width={1993}
             height={3543}
             alt="Noah Bohn"
-            className="rounded-lg"
+            className="rounded-2xl shadow-sm hover:shadow-md transition-shadow duration-300"
           />
           <Image
             cdn="ipx"
@@ -82,7 +82,7 @@ export default function PromoSection() {
             width={3211}
             height={5708}
             alt="Liara Schulze"
-            className="rounded-lg"
+            className="rounded-2xl shadow-sm hover:shadow-md transition-shadow duration-300"
           />
         </div>
       }

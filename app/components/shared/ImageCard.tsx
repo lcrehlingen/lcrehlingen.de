@@ -13,7 +13,7 @@ export type ImageCardProps = {
 
 export default function ImageCard({ image, children, orientation="landscape"}: ImageCardProps) {
   return (
-    <div className="flex h-full flex-col overflow-hidden rounded-lg  border-b-4 border-b-red-500 bg-white shadow-lg">
+    <div className="flex h-full flex-col overflow-hidden rounded-2xl bg-white border border-gray-100 shadow-sm hover:shadow-md transition-all duration-300">
       <div className={orientation === "landscape" ? "aspect-h-9 aspect-w-16" : "aspect-h-5 aspect-w-4"}>
         <Image
           height={image.height}

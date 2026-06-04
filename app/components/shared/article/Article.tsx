@@ -44,20 +44,25 @@ export default function Article({ article }: { article: Article }) {
         <article className="flex flex-col gap-2 text-center">
           {article.thumbnail && (
             <div className="mb-8 flex w-full justify-center">
-              <div className="md:w-6/12">
+              <div className="w-full max-w-xl overflow-hidden rounded-2xl border border-gray-100 shadow-sm">
                 <Image
                   height={article.thumbnail.height}
                   width={article.thumbnail.width}
                   alt={article.thumbnail.alternativeText || undefined}
                   src={article.thumbnail.url}
-                  className="rounded-lg"
+                  className="w-full object-cover"
                   cdn="ipx"
                 />
               </div>
             </div>
           )}
-          <h1 className="text-left text-3xl font-bold">{article.title}</h1>
-          <div className="flex justify-start space-x-2">
+          <h1 className="text-left text-2xl md:text-3xl lg:text-4xl font-extrabold text-gray-900 tracking-tight leading-tight mb-2">
+            {article.title}
+          </h1>
+          <div className="flex items-center gap-2 text-sm text-gray-500 mb-6">
+            <svg className="h-4 w-4 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+            </svg>
             <time className="font-semibold">
               {new Date(article.publishedAt).toLocaleDateString("de-DE", {
                 timeZone: "Europe/Berlin",

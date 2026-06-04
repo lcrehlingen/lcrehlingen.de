@@ -71,6 +71,14 @@ app.use(
 app.use(
   "/_ipx",
   (req, res, next) => {
+    // Rewrite f_auto and f_avif to f_webp to force WebP output
+    if (req.url) {
+      req.url = req.url.replace(/f_auto/g, "f_webp").replace(/f_avif/g, "f_webp");
+    }
+    if (req.originalUrl) {
+      req.originalUrl = req.originalUrl.replace(/f_auto/g, "f_webp").replace(/f_avif/g, "f_webp");
+    }
+
     // Generate a secure hash of the request URL to avoid directory traversal and uniquely reference cached files
     const hash = crypto.createHash("sha256").update(req.originalUrl).digest("hex");
     const rawPath = path.join(CACHE_DIR, `${hash}.raw`);

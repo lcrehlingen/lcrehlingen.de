@@ -2,7 +2,7 @@ import { Image } from "@unpic/react";
 import TableContainer from "~/components/TableContainer";
 
 export default function Pfingstsportfest() {
-  const eventDate = new Date("May 24, 2026");
+  const eventDate = new Date("May 16, 2027");
 
   function daysAway(date: Date) {
     const millisecondsPerDay = 24 * 60 * 60 * 1000;
@@ -28,7 +28,7 @@ export default function Pfingstsportfest() {
         <div className="flex flex-col gap-6 justify-center h-full">
           <h2 className="text-2xl font-bold tracking-tight text-gray-900 leading-none">Pfingstsportfest</h2>
           <p className="text-gray-600 text-sm md:text-base leading-relaxed">
-            Das traditionelle 61. Internationale Pfingstsportfest des LC
+            Das traditionelle 62. Internationale Pfingstsportfest des LC
             Rehlingen findet am{" "}
             {eventDate.toLocaleDateString(undefined, {
               year: "numeric",

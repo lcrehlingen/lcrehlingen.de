@@ -1,6 +1,6 @@
 import { Link, useLocation } from "@remix-run/react";
 import type { ReactNode } from "react";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 
 export default function Navbar({
   children,
@@ -11,15 +11,78 @@ export default function Navbar({
 }) {
   const [open, setOpen] = useState(false);
   const location = useLocation();
+  const [visible, setVisible] = useState(true);
+
+  // Use refs to avoid re-binding scroll event listener on every scroll
+  const lastScrollYRef = useRef(0);
+  const openRef = useRef(open);
+
+  // Keep refs up-to-date
+  useEffect(() => {
+    openRef.current = open;
+  }, [open]);
 
   useEffect(() => {
     setOpen(false);
   }, [location]);
 
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+      const lastScrollY = lastScrollYRef.current;
+
+      // If mobile menu is open, keep navbar visible
+      if (openRef.current) {
+        lastScrollYRef.current = currentScrollY;
+        return;
+      }
+
+      // Always show navbar at the top of the page
+      if (currentScrollY <= 50) {
+        setVisible(true);
+      } else {
+        const diff = currentScrollY - lastScrollY;
+        // Only trigger visibility change if scroll difference is more than 5px to avoid jitter
+        if (Math.abs(diff) > 5) {
+          if (diff > 0) {
+            // Scrolling down
+            setVisible(false);
+          } else {
+            // Scrolling up
+            setVisible(true);
+          }
+        }
+      }
+
+      lastScrollYRef.current = currentScrollY;
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
     <>
-      <header className="flex justify-center w-full">
-        <div className={`container absolute z-30 px-4 lg:px-10`}>
+      <header
+        className={`
+          fixed
+          top-0
+          left-0
+          right-0
+          z-30
+          flex
+          justify-center
+          w-full
+          transition-all
+          duration-300
+          ${
+            visible
+              ? "translate-y-0 opacity-100"
+              : "-translate-y-full opacity-0 pointer-events-none"
+          }
+        `}
+      >
+        <div className="container px-4 lg:px-10">
           <nav
             className="
               mt-2

@@ -1,5 +1,6 @@
 import { z } from "zod";
 import { marked } from "marked";
+import { ImageSchema } from "./image";
 
 const EventSchema = z.object({
     id: z.number(),
@@ -7,7 +8,8 @@ const EventSchema = z.object({
     slug: z.string(),
     date: z.string(),
     content: z.string().transform((content) => marked(content)).nullable(),
-    results: z.boolean()
+    results: z.boolean(),
+    image: ImageSchema,
     });
 
 export type Event = z.infer<typeof EventSchema>;

@@ -19,7 +19,7 @@ export default function Hero() {
           </h2>
           <p className="text-gray-500 text-sm leading-relaxed">
             Haben Sie Fragen zur Mitgliedschaft, zu unseren Trainingsangeboten oder zum Pfingstsportfest?
-            Bitte haben Sie Verständnis, dass wir Anfragen zu Startplätze nicht telefonisch entgegennehmen können. Vielen Dank für Ihr Verständnis.
+            Bitte haben Sie Verständnis, dass wir Anfragen zu Startplätzen nicht telefonisch entgegennehmen können. Vielen Dank für Ihr Verständnis.
           </p>
         </div>
 

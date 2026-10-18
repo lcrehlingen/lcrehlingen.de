@@ -43,12 +43,11 @@ export async function loader() {
         (element) => element.day === time.day
       );
 
-      if (
-        index !== -1 &&
-        trainingsDays[index].trainings.filter((e) => e.name === item.name)
-          .length === 0
-      ) {
-        trainingsDays[index].trainings.push(item);
+      if (index !== -1) {
+        trainingsDays[index].trainings.push({
+          ...item,
+          TrainingTimeRange: [time],
+        });
       }
     });
   });

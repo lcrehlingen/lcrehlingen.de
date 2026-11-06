@@ -26,6 +26,7 @@ export default function Pfingstsportfest() {
           src={"wact_silver.jpg"}
           width={1920}
           height={1080}
+          sizes="(min-width: 768px) 50vw, 100vw"
           alt="World Athletics Continental Tour Silver"
           className="rounded-2xl shadow-sm hover:shadow-md transition-shadow duration-300"
         />

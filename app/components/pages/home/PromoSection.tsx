@@ -1,6 +1,8 @@
 import { Image } from "@unpic/react";
 import TableContainer from "~/components/TableContainer";
 
+const PROMO_IMAGE_SIZES = "(min-width: 1024px) 180px, (min-width: 768px) 16vw, 33vw";
+
 export default function PromoSection() {
   return (
     <TableContainer
@@ -41,6 +43,7 @@ export default function PromoSection() {
             src={"athleten/RichardRinger.jpg"}
             width={309}
             height={550}
+            sizes={PROMO_IMAGE_SIZES}
             alt="Richard Ringer"
             className="rounded-2xl shadow-sm hover:shadow-md transition-shadow duration-300"
           />
@@ -49,38 +52,43 @@ export default function PromoSection() {
             src={"athleten/FriedaSchulz.jpg"}
             width={326}
             height={580}
+            sizes={PROMO_IMAGE_SIZES}
             alt="Frieda Schulz"
             className="rounded-2xl shadow-sm hover:shadow-md transition-shadow duration-300"
           />
           <Image
             cdn="ipx"
             src={"athleten/jugend.jpg"}
-            width={3375}
-            height={6000}
+            width={338}
+            height={600}
+            sizes={PROMO_IMAGE_SIZES}
             alt="Jugendgruppe U16"
             className="rounded-2xl shadow-sm hover:shadow-md transition-shadow duration-300"
           />
           <Image
             cdn="ipx"
             src={"athleten/AlexanderBock.jpg"}
-            width={1020}
-            height={1815}
+            width={337}
+            height={600}
+            sizes={PROMO_IMAGE_SIZES}
             alt="Alexander Bock"
             className="rounded-2xl shadow-sm hover:shadow-md transition-shadow duration-300"
           />
           <Image
             cdn="ipx"
             src={"athleten/NoahBohn.jpg"}
-            width={1993}
-            height={3543}
+            width={338}
+            height={600}
+            sizes={PROMO_IMAGE_SIZES}
             alt="Noah Bohn"
             className="rounded-2xl shadow-sm hover:shadow-md transition-shadow duration-300"
           />
           <Image
             cdn="ipx"
             src={"athleten/LiaraSchulze.jpg"}
-            width={3211}
-            height={5708}
+            width={338}
+            height={600}
+            sizes={PROMO_IMAGE_SIZES}
             alt="Liara Schulze"
             className="rounded-2xl shadow-sm hover:shadow-md transition-shadow duration-300"
           />

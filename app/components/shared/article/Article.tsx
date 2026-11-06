@@ -1,4 +1,4 @@
-import { useEffect, useSyncExternalStore } from "react";
+import { useSyncExternalStore } from "react";
 import ContentContainer from "~/components/ContentContainer";
 import type { Article } from "~/.server/articles";
 import Gallery from "../image/gallery/Gallery";
@@ -25,22 +25,6 @@ export default function Article({ article }: { article: Article }) {
     () => typeof navigator !== "undefined" && typeof navigator.share === "function",
     () => false
   );
-  useEffect(() => {
-    const tables = [...document.getElementsByTagName("table")];
-    tables.forEach((table) => {
-      if (
-        !table.parentElement ||
-        table.parentElement.style.overflowX === "auto"
-      ) {
-        return;
-      }
-      const wrapper = document.createElement("div");
-      table.parentNode?.insertBefore(wrapper, table);
-      wrapper.style.overflowX = "auto";
-      // parent.appendChild(wrapper)
-      wrapper.appendChild(table);
-    });
-  }, []);
 
   return (
     <>
@@ -54,6 +38,7 @@ export default function Article({ article }: { article: Article }) {
                   width={article.thumbnail.width}
                   alt={article.thumbnail.alternativeText || undefined}
                   src={article.thumbnail.url}
+                  sizes="(min-width: 640px) 576px, 100vw"
                   className="w-full object-cover"
                   cdn="ipx"
                 />

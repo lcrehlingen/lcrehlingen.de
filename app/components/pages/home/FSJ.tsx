@@ -39,6 +39,7 @@ export default function FSJ() {
           src={"fsj.jpg"}
           width={1920}
           height={1080}
+          sizes="(min-width: 768px) 50vw, 100vw"
           alt="FSJ im Sport Logo"
           className="rounded-2xl shadow-sm hover:shadow-md transition-shadow duration-300"
         />

@@ -82,7 +82,7 @@ export async function fetchStrapiData(path: string): Promise<unknown[]> {
 
 export function renderMarkdown(markdown: string): string {
   const rawHtml = marked.parse(markdown, { async: false }) as string;
-  return sanitizeHtml(rawHtml, {
+  const sanitized = sanitizeHtml(rawHtml, {
     allowedTags: sanitizeHtml.defaults.allowedTags.concat([
       "img",
       "h1",
@@ -101,6 +101,10 @@ export function renderMarkdown(markdown: string): string {
       "*": ["class", "id"],
     },
   });
+  return sanitized.replace(
+    /<table\b[^>]*>[\s\S]*?<\/table>/gi,
+    (tableHtml) => `<div class="overflow-x-auto">${tableHtml}</div>`
+  );
 }
 
 export function getTodayBerlinDate(): string {

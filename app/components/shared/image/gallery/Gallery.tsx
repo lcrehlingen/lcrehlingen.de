@@ -24,11 +24,13 @@ export default function Gallery({
         padding={0}
         onClick={({ index }) => setIndex(index)}
         render={{
-          photo: ({ onClick }, { photo }) => (
+          photo: ({ onClick }, { photo, width, height }) => (
             <Image
               src={photo.src}
-              width={photo.width}
-              height={photo.height}
+              width={width}
+              height={height}
+              alt={photo.alt}
+              sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
               onClick={onClick}
               cdn="ipx"
             />
@@ -49,6 +51,8 @@ export default function Gallery({
                   src={slide.src}
                   height={slide.height}
                   width={slide.width}
+                  alt={slide.alt}
+                  sizes="100vw"
                   cdn="ipx"
                 />
               );

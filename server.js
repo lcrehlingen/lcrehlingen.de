@@ -11,6 +11,7 @@ import sharp from "sharp";
 sharp.concurrency(1);
 
 const CACHE_DIR = path.resolve("./.cache/ipx");
+const inFlightCacheWrites = new Set();
 
 // Periodically clean up cache files that haven't been accessed/modified in 7 days
 function cleanupIpxCache() {
@@ -139,28 +140,34 @@ app.use(
           chunks.push(Buffer.isBuffer(chunk) ? chunk : Buffer.from(chunk));
         }
 
-        if (res.statusCode === 200) {
+        if (res.statusCode === 200 && !inFlightCacheWrites.has(hash)) {
           const buffer = Buffer.concat(chunks);
-          const contentType = res.getHeader("content-type") || "image/jpeg";
+          if (buffer.length > 0) {
+            inFlightCacheWrites.add(hash);
+            const contentType = res.getHeader("content-type") || "image/jpeg";
 
-          // Write to temporary files first, then rename atomically to prevent serving partially-written, corrupt files on parallel hits
-          const tempRawPath = `${rawPath}.tmp.${crypto.randomBytes(6).toString("hex")}`;
-          const tempMetaPath = `${metaPath}.tmp.${crypto.randomBytes(6).toString("hex")}`;
+            // Write to temporary files first, then rename atomically to prevent serving partially-written, corrupt files on parallel hits
+            const tempRawPath = `${rawPath}.tmp.${crypto.randomBytes(6).toString("hex")}`;
+            const tempMetaPath = `${metaPath}.tmp.${crypto.randomBytes(6).toString("hex")}`;
 
-          fs.promises.mkdir(CACHE_DIR, { recursive: true })
-            .then(() => Promise.all([
-              fs.promises.writeFile(tempRawPath, buffer),
-              fs.promises.writeFile(tempMetaPath, contentType)
-            ]))
-            .then(() => Promise.all([
-              fs.promises.rename(tempRawPath, rawPath),
-              fs.promises.rename(tempMetaPath, metaPath)
-            ]))
-            .catch((err) => {
-              console.error("Failed to write IPX cache:", err);
-              fs.promises.unlink(tempRawPath).catch(() => {});
-              fs.promises.unlink(tempMetaPath).catch(() => {});
-            });
+            fs.promises.mkdir(CACHE_DIR, { recursive: true })
+              .then(() => Promise.all([
+                fs.promises.writeFile(tempRawPath, buffer),
+                fs.promises.writeFile(tempMetaPath, String(contentType))
+              ]))
+              .then(() => Promise.all([
+                fs.promises.rename(tempRawPath, rawPath),
+                fs.promises.rename(tempMetaPath, metaPath)
+              ]))
+              .catch((err) => {
+                console.error("Failed to write IPX cache:", err);
+                fs.promises.unlink(tempRawPath).catch(() => {});
+                fs.promises.unlink(tempMetaPath).catch(() => {});
+              })
+              .finally(() => {
+                inFlightCacheWrites.delete(hash);
+              });
+          }
         }
 
         return originalEnd.apply(res, [chunk, ...args]);

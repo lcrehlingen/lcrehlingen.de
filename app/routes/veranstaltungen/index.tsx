@@ -21,14 +21,7 @@ export const meta: MetaFunction = () => {
 export async function loader() {
   const events = await getEvents({
     results: false,
-  }).then((res) => {
-    return res
-      .filter((event) => {
-        return new Date(event.date) >= new Date();
-      })
-      .sort((a, b) => {
-        return new Date(a.date).getTime() - new Date(b.date).getTime();
-      });
+    upcomingOnly: true,
   });
   return json({
     events,
@@ -41,8 +34,8 @@ export default function EventListPage() {
     <ContentContainer className="gap-4">
       <Title name="Veranstaltungen" />
       <ul className="grid grid-cols-1 gap-4 md:grid-cols-3">
-        {events.map((event, index: number) => (
-          <li key={index}>
+        {events.map((event) => (
+          <li key={event.id}>
             <Link to={`/veranstaltungen/${event.slug}`} rel="bookmark">
               <ImageCard
                 image={

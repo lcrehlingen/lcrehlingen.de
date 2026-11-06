@@ -1,53 +1,47 @@
 import { z } from "zod";
-import { marked } from "marked";
 import { ImageSchema } from "./image";
+import { fetchStrapiData, renderMarkdown } from "./strapi";
 
 const ArticleSchema = z.object({
   id: z.number(),
   title: z.string(),
   slug: z.string(),
-  content: z.string().transform((content) => marked(content)),
+  content: z.string().transform((content) => renderMarkdown(content)),
   publishedAt: z.string(),
   createdAt: z.string(),
   thumbnail: ImageSchema,
-  gallery: z.array(
-    ImageSchema
-  ).nullable(),
+  gallery: z.array(ImageSchema).nullable(),
 });
 
 export type Article = z.infer<typeof ArticleSchema>;
 
-export function getArticle({ slug }: { slug: string }) {
-  return fetch(`
-    ${process.env.STRAPI_URL}/api/articles?sort[0]=createdAt:desc&populate=*&filters[slug][$eq]=${slug}`
-  ).then((res) => res.json()).then((res) => {
-    const article = z.array(ArticleSchema).min(1).max(1).safeParse(res.data);
-    if(article.success) {
-      return article.data[0];
-    }
-    throw new Response("Artikel existiert nicht", {
-      status: 404,
-    });
+export async function getArticle({ slug }: { slug: string }) {
+  const data = await fetchStrapiData(
+    `/api/articles?sort[0]=createdAt:desc&populate=*&filters[slug][$eq]=${encodeURIComponent(slug)}`
+  );
+  const article = z.array(ArticleSchema).min(1).max(1).safeParse(data);
+  if (article.success) {
+    return article.data[0];
+  }
+  throw new Response("Artikel existiert nicht", {
+    status: 404,
   });
 }
 
-export function getArticles({
+export async function getArticles({
   start,
   limit,
 }: {
   start: number;
   limit: number;
 }) {
-  return fetch(
-    `${process.env.STRAPI_URL}/api/articles?sort[0]=createdAt:desc&populate=*&pagination[start]=${start}&pagination[limit]=${limit}`
-  ).then((res) => res.json()).then((res) => {
-    const articles = res.data.map((data: unknown) => {
-      const article = ArticleSchema.safeParse(data)
-      if(article.success) {
-        return article.data;
-      }
-      return null;
-    }).filter((article: Article | null) => article !== null) as Article[];
-    return articles;
-  });
+  const data = await fetchStrapiData(
+    `/api/articles?sort[0]=createdAt:desc&populate=*&pagination[start]=${start}&pagination[limit]=${limit}`
+  );
+  return data
+    .map((item: unknown) => {
+      const article = ArticleSchema.safeParse(item);
+      return article.success ? article.data : null;
+    })
+    .filter((article): article is Article => article !== null);
 }

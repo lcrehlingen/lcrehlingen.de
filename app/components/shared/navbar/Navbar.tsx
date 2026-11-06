@@ -145,6 +145,7 @@ export default function Navbar({
                   duration-200
                 "
                 aria-label="Menu"
+                aria-expanded={open}
                 onClick={() => setOpenPath(open ? null : location.pathname)}
               >
                 {open ? (

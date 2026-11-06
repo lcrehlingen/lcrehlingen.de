@@ -1,7 +1,14 @@
-import { json, LoaderFunctionArgs } from "@remix-run/node";
+import { json, LoaderFunctionArgs, MetaFunction } from "@remix-run/node";
 import { useLoaderData } from "@remix-run/react";
 import { getEvent } from "~/.server/events";
 import ContentContainer from "~/components/ContentContainer";
+
+export const meta: MetaFunction<typeof loader> = ({ data }) => {
+  if (!data) {
+    return [];
+  }
+  return [{ title: data.event.name }];
+};
 
 export async function loader({ params }: LoaderFunctionArgs) {
   const event = await getEvent({ slug: params.slug ? params.slug : "" });
@@ -10,7 +17,7 @@ export async function loader({ params }: LoaderFunctionArgs) {
   });
 }
 
-export default function AthleteProfilePage() {
+export default function EventDetailPage() {
   const { event } = useLoaderData<typeof loader>();
   return (
     <ContentContainer className="gap-4">

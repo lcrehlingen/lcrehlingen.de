@@ -26,7 +26,7 @@ export default function GalleryListPage() {
     <ContentContainer className="gap-4">
       <Title name="Galerie" />
       <section className="grid grid-cols-1 gap-4 lg:grid-cols-4">
-        {galleries.map((gallery, index) => (
+        {galleries.map((gallery) => (
           <GalleryCard
             name={gallery.name}
             to={gallery.slug}
@@ -38,7 +38,7 @@ export default function GalleryListPage() {
                 height: 1080,
               }
             }
-            key={index}
+            key={gallery.id}
           />
         ))}
       </section>

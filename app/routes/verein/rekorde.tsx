@@ -25,9 +25,9 @@ function RecordTable({ title, id, records }: { title: string; id: string; record
 
       {/* Mobile Card List View (Visible on mobile/tablet, hidden on desktop) */}
       <div className="flex flex-col gap-3 md:hidden w-full">
-        {records.map((record, index) => (
+        {records.map((record) => (
           <div 
-            key={index}
+            key={`${record.Disziplin}-${record.Name}-${record.Datum}`}
             className="flex flex-col gap-2 p-4 rounded-xl border border-gray-100 bg-white shadow-sm hover:border-red-100 transition-colors duration-200"
           >
             {/* Discipline & Record Value */}
@@ -64,9 +64,9 @@ function RecordTable({ title, id, records }: { title: string; id: string; record
             </tr>
           </thead>
           <tbody className="divide-y divide-gray-100 bg-white text-sm text-gray-700">
-            {records.map((record, index) => (
+            {records.map((record) => (
               <tr 
-                key={index} 
+                key={`${record.Disziplin}-${record.Name}-${record.Datum}`}
                 className="even:bg-gray-50/40 hover:bg-red-50/20 transition-colors duration-150"
               >
                 <td className="px-5 py-3.5 font-bold text-gray-900">{record.Disziplin}</td>

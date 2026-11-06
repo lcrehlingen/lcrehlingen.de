@@ -1,17 +1,25 @@
-import { json, LoaderFunctionArgs } from "@remix-run/node";
+import { json, LoaderFunctionArgs, MetaFunction } from "@remix-run/node";
 import { useLoaderData } from "@remix-run/react";
 import { getGallery } from "~/.server/gallery";
 import ContentContainer from "~/components/ContentContainer";
 import Gallery from "~/components/shared/image/gallery/Gallery";
 import Title from "~/components/Title";
 
+export const meta: MetaFunction<typeof loader> = ({ data }) => {
+  if (!data) {
+    return [];
+  }
+  return [{ title: data.gallery.name }];
+};
+
 export async function loader({ params }: LoaderFunctionArgs) {
   const { slug = "" } = params;
-  const gallery = (await getGallery({ slug }));
+  const gallery = await getGallery({ slug });
   return json({
     gallery,
   });
 }
+
 export default function GalleryPage() {
   const { gallery } = useLoaderData<typeof loader>();
   return (
@@ -26,7 +34,6 @@ export default function GalleryPage() {
             day: "2-digit",
           })}
         </p>
-
       </div>
       <Gallery
         photos={gallery.media.map((photo) => {
@@ -34,7 +41,7 @@ export default function GalleryPage() {
             src: photo.url,
             width: photo.width,
             height: photo.height,
-            alt: photo.alternativeText || undefined
+            alt: photo.alternativeText || undefined,
           };
         })}
       />

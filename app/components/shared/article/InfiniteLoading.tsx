@@ -6,15 +6,19 @@ import ArticleCard from "./ArticleCard";
 import { Article } from "~/.server/articles";
 import type { loader } from "~/routes/news/index";
 
-export default function InfinteLoading({
-  initalArticles,
+const PAGE_SIZE = 9;
+
+export default function InfiniteLoading({
+  initialArticles,
 }: {
-  initalArticles: Article[];
+  initialArticles: Article[];
 }) {
-  const [articles, setArticles] = useState<Article[]>(initalArticles);
+  const [articles, setArticles] = useState<Article[]>(initialArticles);
   const fetcher = useFetcher<typeof loader>();
 
-  const [shouldFetch, setShouldFetch] = useState(true);
+  const [shouldFetch, setShouldFetch] = useState(
+    initialArticles.length >= PAGE_SIZE
+  );
   const [page, setPage] = useState(1);
   const [prevData, setPrevData] = useState(fetcher.data);
   const containerRef = useRef<HTMLDivElement | null>(null);
@@ -26,31 +30,35 @@ export default function InfinteLoading({
       if (fetchedArticles.length === 0) {
         setShouldFetch(false);
       } else {
-        setArticles((prevPhotos: Article[]) => [
-          ...prevPhotos,
-          ...fetchedArticles,
-        ]);
+        setArticles((prevArticles: Article[]) => {
+          const seen = new Set(prevArticles.map((a) => a.id));
+          const uniqueNew = fetchedArticles.filter((a) => !seen.has(a.id));
+          return [...prevArticles, ...uniqueNew];
+        });
         setPage((currentPage: number) => currentPage + 1);
-        setShouldFetch(true);
+        setShouldFetch(fetchedArticles.length >= PAGE_SIZE);
       }
     }
   }
 
   useEffect(() => {
-    const scrollListener = () => {
-      if (!shouldFetch || fetcher.state === "loading" || !containerRef.current) {
+    const checkAndFetch = () => {
+      if (!shouldFetch || fetcher.state !== "idle" || !containerRef.current) {
         return;
       }
-      const { height } = containerRef.current.getBoundingClientRect();
-      if (window.innerHeight + window.scrollY + 150 >= height) {
+      const { bottom } = containerRef.current.getBoundingClientRect();
+      if (bottom <= window.innerHeight + 150) {
         setShouldFetch(false);
         fetcher.load(`/news?index&page=${page}`);
       }
     };
 
-    window.addEventListener("scroll", scrollListener, { passive: true });
+    checkAndFetch();
+    window.addEventListener("scroll", checkAndFetch, { passive: true });
+    window.addEventListener("resize", checkAndFetch, { passive: true });
     return () => {
-      window.removeEventListener("scroll", scrollListener);
+      window.removeEventListener("scroll", checkAndFetch);
+      window.removeEventListener("resize", checkAndFetch);
     };
   }, [shouldFetch, fetcher, page]);
 
@@ -62,8 +70,8 @@ export default function InfinteLoading({
 
       <div ref={containerRef} className="w-full mt-6">
         <ul className="grid w-full grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {articles.map((article, index: number) => (
-            <li key={index} className="h-full">
+          {articles.map((article) => (
+            <li key={article.id} className="h-full">
               <ArticleCard article={article} />
             </li>
           ))}

@@ -11,8 +11,8 @@ export default function Events({ events }: {
       <div className="flex w-full flex-col justify-center gap-6">
         <h2 className="text-2xl font-bold tracking-tight text-gray-900 leading-none text-center">Veranstaltungen</h2>
         <List>
-          {events.map((event, index: number) => (
-            <ListItem key={index}>
+          {events.map((event) => (
+            <ListItem key={event.id}>
               <Link
                 className="group flex flex-col flex-1 p-4"
                 to={`/veranstaltungen/${event.slug}`}

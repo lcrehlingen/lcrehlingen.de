@@ -15,7 +15,6 @@ import GoTop from "./components/GoTop";
 import ContentContainer from "./components/ContentContainer";
 
 export function Layout({ children }: { children: React.ReactNode }) {
-  const error = useRouteError();
   return (
     <html lang="de">
       <head>
@@ -27,32 +26,43 @@ export function Layout({ children }: { children: React.ReactNode }) {
       </head>
       <body className="flex min-h-screen flex-1 flex-col">
         <DefaultNavbar />
-        <main className="flex-1 w-full flex flex-col">
-          {error ? (
-          <ContentContainer>
-            <h1
-              className="
-        my-2
-        w-full
-        text-center
-        text-4xl
-        font-bold
-        leading-tight text-gray-800
-      "
-            >
-              {isRouteErrorResponse(error) ? (
-                <>
-                  {error.status} {error.data}
-                </>
-              ) : (
-                "Ein Fehler ist aufgetreten"
-              )}
-            </h1>
-            <div className="flex justify-center">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 500 500"
-                className="h-96 w-full"
+        <main className="flex-1 w-full flex flex-col">{children}</main>
+        <GoTop />
+        <ScrollRestoration />
+        <Scripts />
+        <Footer />
+      </body>
+    </html>
+  );
+}
+
+export function ErrorBoundary() {
+  const error = useRouteError();
+  return (
+    <ContentContainer>
+      <h1
+        className="
+          my-2
+          w-full
+          text-center
+          text-4xl
+          font-bold
+          leading-tight text-gray-800
+        "
+      >
+        {isRouteErrorResponse(error) ? (
+          <>
+            {error.status} {error.data}
+          </>
+        ) : (
+          "Ein Fehler ist aufgetreten"
+        )}
+      </h1>
+      <div className="flex justify-center">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 500 500"
+          className="h-96 w-full"
               >
                 <defs>
                   <clipPath id="a">
@@ -119,16 +129,6 @@ export function Layout({ children }: { children: React.ReactNode }) {
               </svg>
             </div>
           </ContentContainer>
-        ) : (
-          children
-        )}
-        </main>
-        <GoTop />
-        <ScrollRestoration />
-        <Scripts />
-        <Footer />
-      </body>
-    </html>
   );
 }
 

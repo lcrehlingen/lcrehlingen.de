@@ -1,3 +1,4 @@
+import { useLocation } from "@remix-run/react";
 import React, { useEffect, useRef, useState } from "react";
 
 export default function NavbarDropdown({
@@ -7,13 +8,15 @@ export default function NavbarDropdown({
   name: string;
   children?: React.ReactNode;
 }) {
-  const [open, setOpen] = useState(false);
+  const [openPath, setOpenPath] = useState<string | null>(null);
+  const location = useLocation();
+  const open = openPath === location.pathname;
   const ref = useRef<HTMLLIElement>(null);
 
   useEffect(() => {
     function handleClickOutside(event: MouseEvent): void {
       if (ref.current && !ref.current.contains(event.target as Node)) {
-        setOpen(false);
+        setOpenPath(null);
       }
     }
     document.addEventListener("mousedown", handleClickOutside);
@@ -29,9 +32,10 @@ export default function NavbarDropdown({
     >
       <button
         type="button"
+        aria-expanded={open}
         onClick={() => {
           if (window.innerWidth < 1024) {
-            setOpen(!open);
+            setOpenPath(open ? null : location.pathname);
           }
         }}
         className={`

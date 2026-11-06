@@ -28,7 +28,7 @@ export default function VorstandPage() {
                 alt: person.name,
               }}
             >
-              <div className="flex flex-col justify-between gap-2 p-4 h-full relative">
+              <div className="relative flex flex-1 flex-col justify-between gap-2 p-4">
                 <h1 className="text-xl font-bold">{person.name}</h1>
                 <div className="flex flex-col gap-1 font-semibold">
                   <p className="text-sm">{person.position}</p>

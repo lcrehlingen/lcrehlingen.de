@@ -28,7 +28,10 @@ export default function Article({ article }: { article: Article }) {
   useEffect(() => {
     const tables = [...document.getElementsByTagName("table")];
     tables.forEach((table) => {
-      if (!table.parentElement) {
+      if (
+        !table.parentElement ||
+        table.parentElement.style.overflowX === "auto"
+      ) {
         return;
       }
       const wrapper = document.createElement("div");
@@ -79,6 +82,7 @@ export default function Article({ article }: { article: Article }) {
           />
           {webShare && (
             <button
+              type="button"
               className="flex w-full gap-4 rounded bg-gray-200 p-4 md:hidden"
               onClick={() =>
                 handleShare(

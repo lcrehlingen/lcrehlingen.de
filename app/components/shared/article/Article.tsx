@@ -1,8 +1,10 @@
-import { useEffect, useState } from "react";
+import { useEffect, useSyncExternalStore } from "react";
 import ContentContainer from "~/components/ContentContainer";
 import type { Article } from "~/.server/articles";
 import Gallery from "../image/gallery/Gallery";
 import { Image } from "@unpic/react";
+
+const emptySubscribe = () => () => {};
 
 async function handleShare(title: string, url: string) {
   if (navigator.share) {
@@ -18,7 +20,11 @@ async function handleShare(title: string, url: string) {
 }
 
 export default function Article({ article }: { article: Article }) {
-  const [webShare, setWebShare] = useState(true);
+  const webShare = useSyncExternalStore(
+    emptySubscribe,
+    () => typeof navigator !== "undefined" && typeof navigator.share === "function",
+    () => false
+  );
   useEffect(() => {
     const tables = [...document.getElementsByTagName("table")];
     tables.forEach((table) => {
@@ -31,11 +37,6 @@ export default function Article({ article }: { article: Article }) {
       // parent.appendChild(wrapper)
       wrapper.appendChild(table);
     });
-  }, []);
-  useEffect(() => {
-    if (!navigator.share) {
-      setWebShare(false);
-    }
   }, []);
 
   return (

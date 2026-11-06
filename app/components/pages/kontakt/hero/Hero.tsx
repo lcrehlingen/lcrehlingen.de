@@ -80,7 +80,7 @@ export default function Hero() {
               </div>
               <div className="flex flex-col">
                 <span className="text-xs font-semibold text-gray-400 uppercase tracking-wider">Telefax</span>
-                <span className="text-sm font-semibold text-gray-850">
+                <span className="text-sm font-semibold text-gray-800">
                   06835 - 607431
                 </span>
               </div>
@@ -95,7 +95,7 @@ export default function Hero() {
               </div>
               <div className="flex flex-col">
                 <span className="text-xs font-semibold text-gray-400 uppercase tracking-wider">Geschäftsstelle Mail</span>
-                <a href="mailto:geschaeftsstelle@lcrehlingen.de" className="text-sm font-bold text-gray-850 hover:text-red-600 transition-colors duration-200">
+                <a href="mailto:geschaeftsstelle@lcrehlingen.de" className="text-sm font-bold text-gray-800 hover:text-red-600 transition-colors duration-200">
                   geschaeftsstelle@lcrehlingen.de
                 </a>
               </div>
@@ -110,7 +110,7 @@ export default function Hero() {
               </div>
               <div className="flex flex-col">
                 <span className="text-xs font-semibold text-red-600 uppercase tracking-wider">Pfingstsportfest Mail</span>
-                <a href="mailto:pfingstsportfest@lcrehlingen.de" className="text-sm font-bold text-gray-850 hover:text-red-600 transition-colors duration-200">
+                <a href="mailto:pfingstsportfest@lcrehlingen.de" className="text-sm font-bold text-gray-800 hover:text-red-600 transition-colors duration-200">
                   pfingstsportfest@lcrehlingen.de
                 </a>
               </div>

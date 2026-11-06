@@ -1,9 +1,10 @@
 import { useFetcher } from "@remix-run/react";
-import { useCallback, useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import ContentContainer from "../../ContentContainer";
 import Title from "../../Title";
 import ArticleCard from "./ArticleCard";
 import { Article } from "~/.server/articles";
+import type { loader } from "~/routes/news/index";
 
 export default function InfinteLoading({
   initalArticles,
@@ -11,66 +12,47 @@ export default function InfinteLoading({
   initalArticles: Article[];
 }) {
   const [articles, setArticles] = useState<Article[]>(initalArticles);
-  const fetcher = useFetcher();
-
-  const [scrollPosition, setScrollPosition] = useState(0);
-  const [clientHeight, setClientHeight] = useState(0);
-  const [height, setHeight] = useState(null);
+  const fetcher = useFetcher<typeof loader>();
 
   const [shouldFetch, setShouldFetch] = useState(true);
   const [page, setPage] = useState(1);
+  const [prevData, setPrevData] = useState(fetcher.data);
+  const containerRef = useRef<HTMLDivElement | null>(null);
 
-  // Set the height of the parent container whenever photos are loaded
-  const divHeight = useCallback(
-    (node) => {
-      if (node !== null) {
-        setHeight(node.getBoundingClientRect().height);
+  if (fetcher.data !== prevData) {
+    setPrevData(fetcher.data);
+    const fetchedArticles = fetcher.data?.articles;
+    if (fetchedArticles) {
+      if (fetchedArticles.length === 0) {
+        setShouldFetch(false);
+      } else {
+        setArticles((prevPhotos: Article[]) => [
+          ...prevPhotos,
+          ...fetchedArticles,
+        ]);
+        setPage((currentPage: number) => currentPage + 1);
+        setShouldFetch(true);
       }
-    },
-    [articles.length]
-  );
+    }
+  }
 
   useEffect(() => {
     const scrollListener = () => {
-      setClientHeight(window.innerHeight);
-      setScrollPosition(window.scrollY);
-    };
-
-    if (typeof window !== "undefined") {
-      window.addEventListener("scroll", scrollListener, { passive: true });
-    }
-
-    return () => {
-      if (typeof window !== "undefined") {
-        window.removeEventListener("scroll", scrollListener);
+      if (!shouldFetch || fetcher.state === "loading" || !containerRef.current) {
+        return;
+      }
+      const { height } = containerRef.current.getBoundingClientRect();
+      if (window.innerHeight + window.scrollY + 150 >= height) {
+        setShouldFetch(false);
+        fetcher.load(`/news?index&page=${page}`);
       }
     };
-  }, []);
 
-  useEffect(() => {
-    if (!shouldFetch || !height) return;
-    if (clientHeight + scrollPosition + 150 < height) return;
-    if (fetcher.state === "loading") return;
-    fetcher.load(`/news?index&page=${page}`);
-    setShouldFetch(false);
-  }, [clientHeight, scrollPosition, height, page, shouldFetch, fetcher]);
-
-  useEffect(() => {
-    // Discontinue API calls if the last page has been reached
-    if (fetcher.data && fetcher.data.articles && fetcher.data.articles.length === 0) {
-      setShouldFetch(false);
-      return;
-    }
-    // Photos contain data, merge them and allow the possibility of another fetch
-    if (fetcher.data && fetcher.data.articles && fetcher.data.articles.length > 0) {
-      setArticles((prevPhotos: Article[]) => [
-        ...prevPhotos,
-        ...fetcher.data.articles,
-      ]);
-      setPage((page: number) => page + 1);
-      setShouldFetch(true);
-    }
-  }, [fetcher.data]);
+    window.addEventListener("scroll", scrollListener, { passive: true });
+    return () => {
+      window.removeEventListener("scroll", scrollListener);
+    };
+  }, [shouldFetch, fetcher, page]);
 
   return (
     <ContentContainer className="gap-6 pb-16">
@@ -78,7 +60,7 @@ export default function InfinteLoading({
         <Title name="Aktuelles" />
       </div>
 
-      <div ref={divHeight} className="w-full mt-6">
+      <div ref={containerRef} className="w-full mt-6">
         <ul className="grid w-full grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {articles.map((article, index: number) => (
             <li key={index} className="h-full">

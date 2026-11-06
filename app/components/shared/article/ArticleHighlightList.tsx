@@ -13,7 +13,7 @@ export default function ArticleHighlightList({
       <ol className="grid w-full grid-cols-1 gap-4 md:grid-cols-3">
         {(more ? articles.slice(0, 6) : articles.slice(0, 3)).map(
           (article, index) => (
-            <li className={index > 2 ? "animate-show" : undefined} key={index}>
+            <li key={index}>
               <ArticleCard container={true} article={article} />
             </li>
           )

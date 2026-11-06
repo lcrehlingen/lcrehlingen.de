@@ -26,14 +26,14 @@ export default function NavbarDropdown({
     <li
       ref={ref}
       className="relative group h-min list-none"
-      onClick={() => {
-        if (window.innerWidth < 1024) {
-          setOpen(!open);
-        }
-      }}
     >
       <button
         type="button"
+        onClick={() => {
+          if (window.innerWidth < 1024) {
+            setOpen(!open);
+          }
+        }}
         className={`
           w-full
           flex

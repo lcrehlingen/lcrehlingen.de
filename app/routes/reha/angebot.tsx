@@ -76,7 +76,7 @@ const formatTime = (timeStr: string) => {
   try {
     const parts = timeStr.split(":");
     return `${parts[0]}:${parts[1]}`;
-  } catch (e) {
+  } catch {
     return timeStr;
   }
 };

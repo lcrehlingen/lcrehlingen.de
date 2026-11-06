@@ -9,8 +9,9 @@ export default function Navbar({
   children?: ReactNode;
   root?: string;
 }) {
-  const [open, setOpen] = useState(false);
+  const [openPath, setOpenPath] = useState<string | null>(null);
   const location = useLocation();
+  const open = openPath === location.pathname;
   const [visible, setVisible] = useState(true);
 
   // Use refs to avoid re-binding scroll event listener on every scroll
@@ -21,10 +22,6 @@ export default function Navbar({
   useEffect(() => {
     openRef.current = open;
   }, [open]);
-
-  useEffect(() => {
-    setOpen(false);
-  }, [location]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -92,7 +89,6 @@ export default function Navbar({
               bg-white
               p-3
               px-6
-              font-source-sans
               shadow-sm
               border
               border-gray-100/80
@@ -112,7 +108,7 @@ export default function Navbar({
                 aria-label="Logo"
               >
                 <svg
-                  className="h-14 sm:h-16 w-auto font-source-sans"
+                  className="h-14 sm:h-16 w-auto"
                   viewBox="0 0 1789 808"
                   xmlns="http://www.w3.org/2000/svg"
                 >
@@ -149,7 +145,7 @@ export default function Navbar({
                   duration-200
                 "
                 aria-label="Menu"
-                onClick={() => setOpen(!open)}
+                onClick={() => setOpenPath(open ? null : location.pathname)}
               >
                 {open ? (
                   <svg

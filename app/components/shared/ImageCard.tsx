@@ -14,13 +14,14 @@ export type ImageCardProps = {
 export default function ImageCard({ image, children, orientation="landscape"}: ImageCardProps) {
   return (
     <div className="flex h-full flex-col overflow-hidden rounded-2xl bg-white border border-gray-100 shadow-sm hover:shadow-md transition-all duration-300">
-      <div className={orientation === "landscape" ? "aspect-h-9 aspect-w-16" : "aspect-h-5 aspect-w-4"}>
+      <div className={`relative w-full overflow-hidden ${orientation === "landscape" ? "aspect-video" : "aspect-4/5"}`}>
         <Image
           height={image.height}
           width={image.width}
           src={image.src}
           alt={image.alt}
           cdn="ipx"
+          className="absolute inset-0 h-full w-full object-cover"
         />
       </div>
       {children}

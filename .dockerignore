@@ -1,0 +1,9 @@
+node_modules
+build
+.cache
+.git
+.github
+.env
+.env.*
+Dockerfile
+README.md

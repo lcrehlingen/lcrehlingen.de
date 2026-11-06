@@ -1,4 +1,4 @@
-import { Link } from "@remix-run/react";
+import { Link } from "react-router";
 import RehaSVG from "~/components/pages/home/svg/RehaSVG";
 import TableContainer from "~/components/TableContainer";
 

@@ -7,8 +7,7 @@ import Events from "~/components/pages/home/Events";
 import BackgroundHeader from "~/components/BackgroundHeader";
 import ArticleHighlightList from "~/components/shared/article/ArticleHighlightList";
 import { getArticles } from "~/.server/articles";
-import { json, useLoaderData } from "@remix-run/react";
-import { MetaFunction } from "@remix-run/node";
+import { type MetaFunction, useLoaderData } from "react-router";
 import { getLatestEventsAndResults } from "~/.server/events";
 
 export const meta: MetaFunction = () => {
@@ -29,10 +28,10 @@ export const loader = async () => {
     getLatestEventsAndResults(),
   ]);
   const { events } = latest;
-  return json({
+  return {
     articles,
     events,
-  });
+  };
 };
 
 export default function Index() {

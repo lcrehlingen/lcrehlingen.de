@@ -1,4 +1,4 @@
-import { Link } from "@remix-run/react";
+import { Link } from "react-router";
 import { Article } from "~/.server/articles";
 import ImageCard from "../ImageCard";
 

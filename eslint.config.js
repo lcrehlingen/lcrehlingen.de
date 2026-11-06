@@ -6,7 +6,13 @@ import importPlugin from "eslint-plugin-import";
 
 export default [
   {
-    ignores: ["node_modules/**", "build/**", "public/build/**", ".cache/**"],
+    ignores: [
+      "node_modules/**",
+      "build/**",
+      "public/build/**",
+      ".cache/**",
+      ".react-router/**",
+    ],
   },
   ...tsPlugin.configs["flat/recommended"],
   reactPlugin.configs.flat.recommended,

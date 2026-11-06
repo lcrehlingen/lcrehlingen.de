@@ -1,4 +1,4 @@
-import { createRequestHandler } from "@remix-run/express";
+import { createRequestHandler } from "@react-router/express";
 import express from "express";
 import {createIPX, createIPXNodeServer, ipxFSStorage, ipxHttpStorage } from "ipx";
 import 'dotenv/config'
@@ -180,12 +180,13 @@ app.use(
 const build = viteDevServer
   ? () =>
       viteDevServer.ssrLoadModule(
-        "virtual:remix/server-build"
+        "virtual:react-router/server-build"
       )
   : await import("./build/server/index.js");
 
 app.all(/.*/, createRequestHandler({ build }));
 
-app.listen(3000, () => {
-  console.log("App listening on http://localhost:3000");
+const port = Number(process.env.PORT) || 3000;
+app.listen(port, () => {
+  console.log(`App listening on http://localhost:${port}`);
 });

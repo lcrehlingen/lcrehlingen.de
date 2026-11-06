@@ -1,4 +1,4 @@
-import { Link } from "@remix-run/react";
+import { Link } from "react-router";
 import { Event } from "~/.server/events";
 import List from "~/components/shared/list/List";
 import ListItem from "~/components/shared/list/ListItem";

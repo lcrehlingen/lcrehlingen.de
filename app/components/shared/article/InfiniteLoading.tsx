@@ -1,10 +1,10 @@
-import { useFetcher } from "@remix-run/react";
+import { useFetcher } from "react-router";
 import { useEffect, useRef, useState } from "react";
 import ContentContainer from "../../ContentContainer";
 import Title from "../../Title";
 import ArticleCard from "./ArticleCard";
 import { Article } from "~/.server/articles";
-import type { loader } from "~/routes/news/index";
+import type { loader } from "~/routes/news._index";
 
 const PAGE_SIZE = 9;
 

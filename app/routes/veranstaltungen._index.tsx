@@ -1,6 +1,4 @@
-import type { MetaFunction } from "@remix-run/node";
-import { json } from "@remix-run/node";
-import { Link, useLoaderData } from "@remix-run/react";
+import { Link, type MetaFunction, useLoaderData } from "react-router";
 import { getEvents } from "~/.server/events";
 import ContentContainer from "~/components/ContentContainer";
 import Title from "~/components/Title";
@@ -23,9 +21,9 @@ export async function loader() {
     results: false,
     upcomingOnly: true,
   });
-  return json({
+  return {
     events,
-  });
+  };
 }
 
 export default function EventListPage() {

@@ -1,6 +1,4 @@
-import type { MetaFunction } from "@remix-run/node";
-import { json } from "@remix-run/node";
-import { useLoaderData } from "@remix-run/react";
+import { type MetaFunction, useLoaderData } from "react-router";
 import { getTrainers } from "~/.server/training";
 import TrainerGrid from "~/components/shared/training/TrainerGrid";
 
@@ -14,9 +12,9 @@ export const meta: MetaFunction = () => {
 
 export async function loader() {
   const trainers = await getTrainers({ reha: true });
-  return json({
+  return {
     trainers,
-  });
+  };
 }
 
 export default function RehaTrainerListPage() {

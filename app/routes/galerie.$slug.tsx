@@ -1,15 +1,18 @@
-import { json, LoaderFunctionArgs, MetaFunction } from "@remix-run/node";
-import { useLoaderData } from "@remix-run/react";
+import {
+  type LoaderFunctionArgs,
+  type MetaFunction,
+  useLoaderData,
+} from "react-router";
 import { getGallery } from "~/.server/gallery";
 import ContentContainer from "~/components/ContentContainer";
 import Gallery from "~/components/shared/image/gallery/Gallery";
 import Title from "~/components/Title";
 
-export const meta: MetaFunction<typeof loader> = ({ data }) => {
-  if (!data) {
+export const meta: MetaFunction<typeof loader> = ({ loaderData }) => {
+  if (!loaderData) {
     return [];
   }
-  const { gallery } = data;
+  const { gallery } = loaderData;
   const tags = [
     { title: gallery.name },
     { property: "og:title", content: gallery.name },
@@ -27,9 +30,9 @@ export const meta: MetaFunction<typeof loader> = ({ data }) => {
 export async function loader({ params }: LoaderFunctionArgs) {
   const { slug = "" } = params;
   const gallery = await getGallery({ slug });
-  return json({
+  return {
     gallery,
-  });
+  };
 }
 
 export default function GalleryPage() {

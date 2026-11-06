@@ -1,4 +1,4 @@
-import { NavLink } from "@remix-run/react";
+import { NavLink } from "react-router";
 
 export default function NavbarItem({ name, to }: { name: string; to: string }) {
   const isExternal = to.startsWith("http://") || to.startsWith("https://");

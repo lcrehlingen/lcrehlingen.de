@@ -3,7 +3,7 @@ import Title from "~/components/Title";
 
 import clubRecordsM from "~/assets/records_club_m.json";
 import clubRecordsW from "~/assets/records_club_w.json";
-import type { MetaFunction } from "@remix-run/node";
+import type { MetaFunction } from "react-router";
 
 export const meta: MetaFunction = () => {
   return [

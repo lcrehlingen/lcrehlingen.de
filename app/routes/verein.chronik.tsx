@@ -1,7 +1,7 @@
 import ContentContainer from "~/components/ContentContainer";
 import Title from "~/components/Title";
 import timeline from "~/assets/chronik.json";
-import type { MetaFunction } from "@remix-run/node";
+import type { MetaFunction } from "react-router";
 
 export const meta: MetaFunction = () => {
   return [

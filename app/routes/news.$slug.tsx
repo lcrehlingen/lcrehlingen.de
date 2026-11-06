@@ -1,13 +1,16 @@
-import { json, LoaderFunctionArgs, MetaFunction } from "@remix-run/node";
-import { useLoaderData } from "@remix-run/react";
+import {
+  type LoaderFunctionArgs,
+  type MetaFunction,
+  useLoaderData,
+} from "react-router";
 import { getArticle } from "~/.server/articles";
 import Article from "~/components/shared/article/Article";
 
-export const meta: MetaFunction<typeof loader> = ({ data }) => {
-  if (!data) {
+export const meta: MetaFunction<typeof loader> = ({ loaderData }) => {
+  if (!loaderData) {
     return [];
   }
-  const { article } = data;
+  const { article } = loaderData;
   return [
     { title: article.title },
     { property: "og:title", content: article.title },
@@ -25,9 +28,9 @@ export async function loader({ params }: LoaderFunctionArgs) {
     throw new Response("Artikel existiert nicht", { status: 404 });
   }
   const article = await getArticle({ slug });
-  return json({
+  return {
     article,
-  });
+  };
 }
 
 export default function NewsPage() {

@@ -1,13 +1,16 @@
-import { json, LoaderFunctionArgs, MetaFunction } from "@remix-run/node";
-import { useLoaderData } from "@remix-run/react";
+import {
+  type LoaderFunctionArgs,
+  type MetaFunction,
+  useLoaderData,
+} from "react-router";
 import { getEvent } from "~/.server/events";
 import ContentContainer from "~/components/ContentContainer";
 
-export const meta: MetaFunction<typeof loader> = ({ data }) => {
-  if (!data) {
+export const meta: MetaFunction<typeof loader> = ({ loaderData }) => {
+  if (!loaderData) {
     return [];
   }
-  const { event } = data;
+  const { event } = loaderData;
   const tags = [
     { title: event.name },
     { property: "og:title", content: event.name },
@@ -24,9 +27,9 @@ export const meta: MetaFunction<typeof loader> = ({ data }) => {
 
 export async function loader({ params }: LoaderFunctionArgs) {
   const event = await getEvent({ slug: params.slug ? params.slug : "" });
-  return json({
+  return {
     event,
-  });
+  };
 }
 
 export default function EventDetailPage() {

@@ -1,5 +1,8 @@
-import { json, LoaderFunctionArgs, MetaFunction } from "@remix-run/node";
-import { useLoaderData } from "@remix-run/react";
+import {
+  type LoaderFunctionArgs,
+  type MetaFunction,
+  useLoaderData,
+} from "react-router";
 import { getArticles } from "~/.server/articles";
 import InfiniteLoading from "~/components/shared/article/InfiniteLoading";
 
@@ -22,9 +25,9 @@ export async function loader({ request }: LoaderFunctionArgs) {
   const page = getPage(new URL(request.url).searchParams);
 
   const articles = await getArticles({ start: page * amount, limit: amount });
-  return json({
+  return {
     articles,
-  });
+  };
 }
 
 export default function Index() {

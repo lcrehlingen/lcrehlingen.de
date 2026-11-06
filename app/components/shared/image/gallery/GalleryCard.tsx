@@ -1,4 +1,4 @@
-import { Link } from "@remix-run/react";
+import { Link } from "react-router";
 import { Image } from "@unpic/react";
 import type { Image as ImageType } from "~/.server/image";
 

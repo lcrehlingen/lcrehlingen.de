@@ -1,4 +1,4 @@
-import type { MetaFunction } from "@remix-run/node";
+import type { MetaFunction } from "react-router";
 import ImageCard from "~/components/shared/ImageCard";
 import ContentContainer from "~/components/ContentContainer";
 import Title from "~/components/Title";

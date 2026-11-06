@@ -1,6 +1,4 @@
-import type { MetaFunction } from "@remix-run/node";
-import { json } from "@remix-run/node";
-import { useLoaderData } from "@remix-run/react";
+import { type MetaFunction, useLoaderData } from "react-router";
 import { getTrainings, groupTrainingsByDay } from "~/.server/training";
 import TrainingSchedule from "~/components/shared/training/TrainingSchedule";
 
@@ -18,9 +16,9 @@ export const meta: MetaFunction = () => {
 
 export async function loader() {
   const trainings = await getTrainings({ reha: false });
-  return json({
+  return {
     trainings: groupTrainingsByDay(trainings),
-  });
+  };
 }
 
 export default function TrainingListPage() {

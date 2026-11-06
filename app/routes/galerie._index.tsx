@@ -1,6 +1,4 @@
-import type { MetaFunction } from "@remix-run/node";
-import { json } from "@remix-run/node";
-import { useLoaderData } from "@remix-run/react";
+import { type MetaFunction, useLoaderData } from "react-router";
 import { getGalleries } from "~/.server/gallery";
 import ContentContainer from "~/components/ContentContainer";
 import GalleryCard from "~/components/shared/image/gallery/GalleryCard";
@@ -16,9 +14,9 @@ export const meta: MetaFunction = () => {
 
 export async function loader() {
   const galleries = ((await getGalleries())) || [];
-  return json({
+  return {
     galleries,
-  });
+  };
 }
 export default function GalleryListPage() {
   const { galleries } = useLoaderData<typeof loader>();

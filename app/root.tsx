@@ -6,7 +6,7 @@ import {
   Scripts,
   ScrollRestoration,
   useRouteError,
-} from "@remix-run/react";
+} from "react-router";
 
 import "./tailwind.css";
 import DefaultNavbar from "./components/shared/navbar/DefaultNavbar";

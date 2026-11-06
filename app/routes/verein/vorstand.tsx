@@ -17,19 +17,19 @@ export default function VorstandPage() {
     <ContentContainer className="gap-4">
       <Title name="Vorstand" />
       <ul className="grid grid-cols-2 gap-4 md:grid-cols-4">
-        {vorstand.map((person, index) => (
-          <li key={index} className="h-full">
+        {vorstand.map((person) => (
+          <li key={person.name} className="h-full">
             <ImageCard
               orientation="portrait"
               image={{
-                height:1350,
+                height: 1350,
                 width: 1080,
                 src: person.image,
                 alt: person.name,
               }}
             >
               <div className="relative flex flex-1 flex-col justify-between gap-2 p-4">
-                <h1 className="text-xl font-bold">{person.name}</h1>
+                <h2 className="text-xl font-bold">{person.name}</h2>
                 <div className="flex flex-col gap-1 font-semibold">
                   <p className="text-sm">{person.position}</p>
                 </div>

@@ -45,7 +45,7 @@ export default function MemberPage() {
             <span className="text-xs font-semibold text-red-600 uppercase tracking-wider mb-1">Geschäftsadresse</span>
             <div className="flex items-start gap-3">
               <svg className="h-5 w-5 text-gray-400 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 000-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
               </svg>
               <div className="flex flex-col text-sm md:text-base">
                 <p className="font-bold text-gray-900">LC Rehlingen e.V.</p>
@@ -65,9 +65,9 @@ export default function MemberPage() {
         <div className="flex flex-col gap-4 w-full">
           <h3 className="text-lg font-bold text-gray-900 tracking-tight mb-1">Unterlagen zum Download</h3>
           <div className="flex flex-col gap-4 w-full">
-            {documents.map((doc, index) => (
+            {documents.map((doc) => (
               <a 
-                key={index}
+                key={doc.filename}
                 href={`/${doc.filename}`}
                 target="_blank"
                 rel="noopener noreferrer"

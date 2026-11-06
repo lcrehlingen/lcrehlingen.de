@@ -9,7 +9,19 @@ export const meta: MetaFunction<typeof loader> = ({ data }) => {
   if (!data) {
     return [];
   }
-  return [{ title: data.gallery.name }];
+  const { gallery } = data;
+  const tags = [
+    { title: gallery.name },
+    { property: "og:title", content: gallery.name },
+    { property: "og:type", content: "website" },
+  ];
+  if (gallery.thumbnail) {
+    tags.push({
+      property: "og:image",
+      content: `https://lcrehlingen.de/_ipx/w_1200,f_webp${gallery.thumbnail.url}`,
+    });
+  }
+  return tags;
 };
 
 export async function loader({ params }: LoaderFunctionArgs) {

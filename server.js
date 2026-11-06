@@ -63,11 +63,17 @@ const viteDevServer =
       );
 
 const app = express();
-app.use(
-  viteDevServer
-    ? viteDevServer.middlewares
-    : express.static("build/client")
-);
+app.disable("x-powered-by");
+
+if (viteDevServer) {
+  app.use(viteDevServer.middlewares);
+} else {
+  app.use(
+    "/assets",
+    express.static("build/client/assets", { immutable: true, maxAge: "1y" })
+  );
+  app.use(express.static("build/client", { maxAge: "1h" }));
+}
 app.use(
   "/_ipx",
   (req, res, next) => {

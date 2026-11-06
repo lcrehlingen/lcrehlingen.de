@@ -65,7 +65,7 @@ export default function Hero() {
               </div>
               <div className="flex flex-col">
                 <span className="text-xs font-semibold text-gray-400 uppercase tracking-wider">Telefon</span>
-                <a href="tel:4968354408" className="text-sm font-bold text-gray-800 hover:text-red-600 transition-colors duration-200">
+                <a href="tel:+4968354408" className="text-sm font-bold text-gray-800 hover:text-red-600 transition-colors duration-200">
                   06835 - 4408
                 </a>
               </div>
@@ -121,7 +121,7 @@ export default function Hero() {
         {/* CTA Buttons Row */}
         <div className="flex flex-col sm:flex-row gap-3 w-full mt-2">
           <a
-            href="tel:4968354408"
+            href="tel:+4968354408"
             className="flex-1 text-center py-3.5 px-6 font-bold uppercase tracking-wide text-white bg-red-600 hover:bg-red-700 rounded-xl shadow-md shadow-red-200/50 transition-all duration-200 text-sm flex items-center justify-center gap-2"
           >
             <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">

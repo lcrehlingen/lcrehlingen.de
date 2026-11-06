@@ -3,33 +3,26 @@ import { useLoaderData } from "@remix-run/react";
 import { getArticle } from "~/.server/articles";
 import Article from "~/components/shared/article/Article";
 
-/*export const meta: MetaFunction = ({ data }: { data: LoaderData }) => {
-  if (!data) {
-    return {};
-  }
-  const { article } = data;
-  return {
-    title: article.title,
-    "og:title": article.title,
-    "og:type": "article",
-    "og:image:width": "1200",
-    "og:image:height": "630",
-    "og:image": `https://lcrehlingen.de/api/og?slug=${article.slug}`,
-  };
-};*/
-
 export const meta: MetaFunction<typeof loader> = ({ data }) => {
   if (!data) {
     return [];
   }
   const { article } = data;
-  return [{ title: article.title }];
+  return [
+    { title: article.title },
+    { property: "og:title", content: article.title },
+    { property: "og:type", content: "article" },
+    {
+      property: "og:image",
+      content: `https://lcrehlingen.de/_ipx/w_1200,f_webp${article.thumbnail.url}`,
+    },
+  ];
 };
 
 export async function loader({ params }: LoaderFunctionArgs) {
   const { slug } = params;
   if (!slug) {
-    throw Error("No slug provided"); // For typing purposes
+    throw new Response("Artikel existiert nicht", { status: 404 });
   }
   const article = await getArticle({ slug });
   return json({

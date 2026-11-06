@@ -46,11 +46,6 @@ export default function ZirkusprojektPage() {
       height: 900,
     },
     {
-      src: "/zirkusprojekt/IMG-20190705-WA0028.jpg",
-      width: 900,
-      height: 1600,
-    },
-    {
       src: "/zirkusprojekt/20200805_184023.jpg",
       width: 2492,
       height: 2592,

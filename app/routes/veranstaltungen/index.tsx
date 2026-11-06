@@ -55,9 +55,9 @@ export default function EventListPage() {
                 }
               >
                 <div className="flex flex-1 flex-col justify-between gap-2 p-4">
-                  <h1 className="w-full text-xl font-semibold text-gray-900">
+                  <h2 className="w-full text-xl font-semibold text-gray-900">
                     {event.name}
-                  </h1>
+                  </h2>
                   <span className="text-base text-gray-500">
                     <time dateTime={new Date(event.date).toISOString()}>
                       {new Date(event.date).toLocaleDateString("de-DE", {

@@ -26,7 +26,7 @@ export default function TrainerGrid({
               }}
             >
               <div className="relative flex flex-1 flex-col justify-between gap-2 p-4">
-                <h1 className="text-xl font-bold">{trainer.name}</h1>
+                <h2 className="text-xl font-bold">{trainer.name}</h2>
                 <div className="flex flex-col gap-1 font-semibold">
                   <ul>
                     {trainer.trainings.map((training) => (

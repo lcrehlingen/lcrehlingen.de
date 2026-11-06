@@ -1,13 +1,26 @@
 import { marked } from "marked";
 import sanitizeHtml from "sanitize-html";
 
+const FETCH_TIMEOUT_MS = 8_000;
+const CACHE_TTL_MS = 60_000;
+const MAX_CACHE_ENTRIES = 200;
+
+interface CacheEntry {
+  data: unknown[];
+  expiresAt: number;
+}
+
+const responseCache = new Map<string, CacheEntry>();
+const inFlightRequests = new Map<string, Promise<unknown[]>>();
+
 export function getStrapiUrl(): string {
   return (process.env.STRAPI_URL ?? "").replace(/\/+$/, "");
 }
 
-export async function fetchStrapiData(path: string): Promise<unknown[]> {
-  const url = `${getStrapiUrl()}${path}`;
-  const res = await fetch(url);
+async function fetchStrapiUncached(url: string): Promise<unknown[]> {
+  const res = await fetch(url, {
+    signal: AbortSignal.timeout(FETCH_TIMEOUT_MS),
+  });
   if (!res.ok) {
     throw new Response("Fehler beim Laden der Daten", {
       status: res.status,
@@ -23,6 +36,48 @@ export async function fetchStrapiData(path: string): Promise<unknown[]> {
     return (json as { data: unknown[] }).data;
   }
   return [];
+}
+
+export async function fetchStrapiData(path: string): Promise<unknown[]> {
+  const url = `${getStrapiUrl()}${path}`;
+  const now = Date.now();
+  const cached = responseCache.get(url);
+
+  if (cached && cached.expiresAt > now) {
+    return cached.data;
+  }
+
+  const existingInFlight = inFlightRequests.get(url);
+  if (existingInFlight) {
+    return existingInFlight;
+  }
+
+  const requestPromise = fetchStrapiUncached(url)
+    .then((data) => {
+      if (responseCache.size >= MAX_CACHE_ENTRIES && !responseCache.has(url)) {
+        const oldestKey = responseCache.keys().next().value;
+        if (oldestKey !== undefined) {
+          responseCache.delete(oldestKey);
+        }
+      }
+      responseCache.set(url, {
+        data,
+        expiresAt: Date.now() + CACHE_TTL_MS,
+      });
+      return data;
+    })
+    .catch((error) => {
+      if (cached) {
+        return cached.data;
+      }
+      throw error;
+    })
+    .finally(() => {
+      inFlightRequests.delete(url);
+    });
+
+  inFlightRequests.set(url, requestPromise);
+  return requestPromise;
 }
 
 export function renderMarkdown(markdown: string): string {

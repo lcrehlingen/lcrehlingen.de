@@ -7,7 +7,19 @@ export const meta: MetaFunction<typeof loader> = ({ data }) => {
   if (!data) {
     return [];
   }
-  return [{ title: data.event.name }];
+  const { event } = data;
+  const tags = [
+    { title: event.name },
+    { property: "og:title", content: event.name },
+    { property: "og:type", content: "website" },
+  ];
+  if (event.image) {
+    tags.push({
+      property: "og:image",
+      content: `https://lcrehlingen.de/_ipx/w_1200,f_webp${event.image.url}`,
+    });
+  }
+  return tags;
 };
 
 export async function loader({ params }: LoaderFunctionArgs) {

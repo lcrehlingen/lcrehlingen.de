@@ -45,12 +45,21 @@ export default function EventListPage() {
           <li key={index}>
             <Link to={`/veranstaltungen/${event.slug}`} rel="bookmark">
               <ImageCard
-                image={{
-                  height: event.image.height,
-                  width: event.image.width,
-                  src: event.image.url,
-                  alt: event.image.alternativeText || undefined,
-                }}
+                image={
+                  event.image
+                    ? {
+                        height: event.image.height,
+                        width: event.image.width,
+                        src: event.image.url,
+                        alt: event.image.alternativeText || undefined,
+                      }
+                    : {
+                        height: 1080,
+                        width: 1920,
+                        src: "/background.jpg",
+                        alt: event.name,
+                      }
+                }
               >
                 <div className="flex flex-1 flex-col justify-between gap-2 p-4">
                   <h1 className="w-full text-xl font-semibold text-gray-900">

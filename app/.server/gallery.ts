@@ -7,11 +7,14 @@ const GallerySchema = z.object({
     name: z.string(),
     slug: z.string(),
     date: z.string().transform((date) => new Date(date).toISOString()),
-    thumbnail: ImageSchema,
+    thumbnail: ImageSchema.nullable(),
     media: z.array(
         ImageSchema
-    ),
-});
+    ).nullable().transform((media) => media ?? []),
+}).transform((gallery) => ({
+    ...gallery,
+    thumbnail: gallery.thumbnail ?? gallery.media[0] ?? null,
+}));
 
 export type Gallery = z.infer<typeof GallerySchema>;
 

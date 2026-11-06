@@ -34,7 +34,7 @@ export default function EventListPage() {
               image={{
                 height: 1350,
                 width: 1080,
-                src: trainer.image.url,
+                src: trainer.image?.url ?? "/vorstand/placeholder.png",
                 alt: trainer.name,
               }}
             >

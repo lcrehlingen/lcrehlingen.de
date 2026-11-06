@@ -30,7 +30,14 @@ export default function GalleryListPage() {
           <GalleryCard
             name={gallery.name}
             to={gallery.slug}
-            image={gallery.thumbnail}
+            image={
+              gallery.thumbnail ?? {
+                url: "/background.jpg",
+                alternativeText: gallery.name,
+                width: 1920,
+                height: 1080,
+              }
+            }
             key={index}
           />
         ))}

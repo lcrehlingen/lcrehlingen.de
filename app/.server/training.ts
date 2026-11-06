@@ -4,7 +4,7 @@ import { ImageSchema } from "./image";
 const TrainerSchema = z.object({
   id: z.number(),
   name: z.string(),
-  image: ImageSchema,
+  image: ImageSchema.nullable(),
   trainings: z.array(
     z.object({
        reha: z.boolean(),
@@ -49,11 +49,23 @@ export function getTrainers({
       return null;
     }).filter((trainer: Trainer | null) => trainer !== null) as Trainer[];
     if(reha) {
-      return trainers.filter((trainer) => {
-        return trainer.trainings.some((training) => training.reha);
-      });
+      return trainers
+        .filter((trainer) => trainer.trainings.some((training) => training.reha))
+        .map((trainer) => ({
+          ...trainer,
+          trainings: trainer.trainings.filter((training) => training.reha),
+        }));
     }
-    return trainers;
+    return trainers
+      .filter(
+        (trainer) =>
+          trainer.trainings.length === 0 ||
+          trainer.trainings.some((training) => !training.reha)
+      )
+      .map((trainer) => ({
+        ...trainer,
+        trainings: trainer.trainings.filter((training) => !training.reha),
+      }));
   });
 }
 

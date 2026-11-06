@@ -9,7 +9,7 @@ const EventSchema = z.object({
     date: z.string(),
     content: z.string().transform((content) => marked(content)).nullable(),
     results: z.boolean(),
-    image: ImageSchema,
+    image: ImageSchema.nullable(),
     });
 
 export type Event = z.infer<typeof EventSchema>;
